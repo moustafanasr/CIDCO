@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIDCO - Creative Industries Development Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Sections Common Styles */
+        .section {
+            padding: 60px 0;
+            width: 100%;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #6e3f20;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #d7b24a;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: #efe6d5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #d7b24a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20" opacity="0.4"/><path d="M0 0L100 100" stroke="%236e3f20" stroke-width="2"/><path d="M100 0L0 100" stroke="%236e3f20" stroke-width="2"/></svg>'), linear-gradient(rgba(110, 63, 32, 0.5), rgba(110, 63, 32, 0.5));
+            background-color: #6e3f20;
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+            color: #d7b24a;
+            position: relative;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        /* Tagline Strip */
+        .tagline {
+            background-color: #263611;
+            padding: 14px 0;
+            text-align: center;
+        }
+        
+        .tagline h3 {
+            color: #d7b24a;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f8f4ec;
+            padding: 60px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: #6e3f20;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            background: linear-gradient(45deg, #6e3f20, #d7b24a);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .about-image img{
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Products Grid */
+        .products {
+            background-color: #efe6d5;
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #6e3f20;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .product-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6e3f20;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .product-label {
+            background: #efe6d5;
+            color: #1e1e1e;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #6e3f20;
+            padding: 60px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .service-item {
+            text-align: center;
+            color: #d7b24a;
+            padding: 25px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-8px);
+        }
+        
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f8f4ec;
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .testimonial-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #6e3f20;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: #263611;
+            padding: 40px 0;
+        }
+        
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            align-items: center;
+        }
+        
+        .cta-text {
+            color: #d7b24a;
+            padding-left: 20px;
+        }
+        
+        .cta-text p {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            text-align: center;
+        }
+        
+        .btn {
+            background-color: #d7b24a;
+            color: #6e3f20;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid #d7b24a;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: #d7b24a;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #efe6d5;
+            padding: 60px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            color: #6e3f20;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            color: #d7b24a;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #6e3f20;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-widget h4 {
+            color: #d7b24a;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-widget h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #d7b24a;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #d7b24a;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .services-grid, .testimonials-grid, .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .services-grid, .testimonials-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .hero {
+                min-height: 350px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .nav-links li {
+                margin: 8px 0;
+            }
+        }
+        
+        /* RTL Specific Styles */
+        html[dir="rtl"] .product-item, 
+        html[dir="rtl"] .service-item {
+            text-align: center;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">CIDCO</div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن الشركة</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#services">الخدمات</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>شركة تطوير الصناعات الإبداعية</h1>
+                <h2>Creative Industries Development Company, CIDCO</h2>
+                <p>www.cidco.tech</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline Strip -->
+    <section class="tagline">
+        <div class="container">
+            <h3>طريق المبدعين ..... للنجاح و التميز</h3>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">عن شركتنا</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>رسالتنا ورؤيتنا</h2>
+                    <p>نحن في CIDCO نعمل على تطوير الصناعات الإبداعية ودعم المبدعين في مختلف المجالات. نؤمن بأن الإبداع هو المحرك الأساسي للاقتصاد الحديث ونهدف إلى خلق بيئة داعمة للمبدعين.</p>
+                    <p>نسعى لتحقيق التميز في تقديم خدمات تطوير التصميمات وضمان الجودة والتسويق الدولي للمنتجات الإبداعية وفقاً لأعلى المعايير الدولية.</p>
+                    <a href="#" class="btn">المزيد عنا</a>
+                </div>
+                <div class="about-image">
+                    <img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="LogoImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="product-img">صورة الحلي</div>
+                    <div class="product-label">الحلي</div>
+                </div>
+                <div class="product-item">
+                    <div class="product-img">صورة المنتجات الجلدية</div>
+                    <div class="product-label">المنتجات الجلدية</div>
+                </div>
+                <div class="product-item">
+                    <div class="product-img">صورة الكليم</div>
+                    <div class="product-label">الكليم و السجاد</div>
+                </div>
+                <div class="product-item">
+                    <div class="product-img">صورة الفخار</div>
+                    <div class="product-label">الفخار</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" style="color: #d7b24a;">خدماتنا لكم</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3 class="service-title">تطوير التصميمات</h3>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="service-title">ضمان الجودة</h3>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="service-title">التسويق الدولي</h3>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3 class="service-title">المواصفات الدولية</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"لقد ساعدتني CIDCO في تطوير منتجاتي وتحقيق وجود قوي في الأسواق الدولية بفضل خدماتها المتميزة."</p>
+                    <p class="testimonial-author">- أحمد السيد</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"جودة الخدمة والاهتمام بالتفاصيل يجعلان التعامل مع CIDCO تجربة فريدة ومميزة لأي صاحب عمل إبداعي."</p>
+                    <p class="testimonial-author">- فاطمة محمد</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"بفضل الدعم المستمر من CIDCO، استطعت تطوير علامتي التجارية وزيادة مبيعاتي بنسبة 200% خلال عام واحد."</p>
+                    <p class="testimonial-author">- خالد عبدالله</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-text">
+                    <p>رعاية المبدعين .... و تنمية مستدامة</p>
+                </div>
+                <div class="cta-button">
+                    <h3 style="color: #d7b24a; margin-bottom: 15px;">انضم لطريق النجاح</h3>
+                    <a href="mailto:supplier@cidco.tech" class="btn">supplier@cidco.tech</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <p>الرياض، المملكة العربية السعودية</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <p>+966 12 345 6789</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <p>info@cidco.tech</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock contact-icon"></i>
+                        <p>الأحد - الخميس: 8 صباحاً - 5 مساءً</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="color: #6e3f20; margin-bottom: 20px;">أرسل رسالة</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن الشركة</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير التصميمات</a></li>
+                        <li><a href="#">ضمان الجودة</a></li>
+                        <li><a href="#">التسويق الدولي</a></li>
+                        <li><a href="#">المواصفات الدولية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.product-item, .service-item, .testimonial-item, .about-text, .about-image');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
