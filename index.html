@@ -38,6 +38,7 @@
         
         /* Header */
         .header {
+        
             background-color: #6e3f20;
             padding: 15px 0;
             position: sticky;
@@ -172,7 +173,7 @@
         
         /* Products Grid */
         .products {
-            background-color: #efe6d5;
+            background-color: #fff;
             padding: 40px 0;
         }
         
@@ -212,6 +213,10 @@
             color: #6e3f20;
             font-size: 1.5rem;
             font-weight: 700;
+        }
+        .product-img img{
+            width: 100%;
+            height: 100%;
         }
         
         .product-label {
@@ -546,6 +551,10 @@
     </style>
 </head>
 <body>
+  <div style="width: 100%; height: 250px;">
+    <!-- <img src="./HeaderSmall.jpg" alt=""> -->
+     <img src="./erasebg-transformed.png" alt="" style="width: 100%; height: 100%;">
+  </div>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -556,14 +565,14 @@
                     <li><a href="#about">عن الشركة</a></li>
                     <li><a href="#products">المنتجات</a></li>
                     <li><a href="#services">الخدمات</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
+                    <!-- <li><a href="#contact">اتصل بنا</a></li> -->
                 </ul>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>شركة تطوير الصناعات الإبداعية</h1>
@@ -571,7 +580,7 @@
                 <p>www.cidco.tech</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Tagline Strip -->
     <section class="tagline">
@@ -604,19 +613,27 @@
             <h2 class="section-title">منتجاتنا</h2>
             <div class="products-grid">
                 <div class="product-item">
-                    <div class="product-img">صورة الحلي</div>
+                    <div class="product-img">
+                      <img src="./assest/img/jewelry.jpeg" alt="">
+                    </div>
                     <div class="product-label">الحلي</div>
                 </div>
                 <div class="product-item">
-                    <div class="product-img">صورة المنتجات الجلدية</div>
+                    <div class="product-img">
+                      <img src="./assest/img/leather.png" alt="">
+                    </div>
                     <div class="product-label">المنتجات الجلدية</div>
                 </div>
                 <div class="product-item">
-                    <div class="product-img">صورة الكليم</div>
+                    <div class="product-img">
+                      <img src="./assest/img/Kilimandcarpet.png" alt="">
+                    </div>
                     <div class="product-label">الكليم و السجاد</div>
                 </div>
                 <div class="product-item">
-                    <div class="product-img">صورة الفخار</div>
+                    <div class="product-img">
+                      <img src="./assest/img/pottery.png" alt="">
+                    </div>
                     <div class="product-label">الفخار</div>
                 </div>
             </div>
@@ -685,7 +702,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">اتصل بنا</h2>
             <div class="contact-grid">
@@ -728,7 +745,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
