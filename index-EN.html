@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,9 +38,7 @@
         
         /* Header */
         .header {
-        
             background-color: #6e3f20;
-            /* padding: 15px 0; */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -54,16 +52,10 @@
         }
         
         .logo {
-            /* font-size: 1.8rem;
-            font-weight: 900;
-            color: #d7b24a; */
             width: 200px;
             height: 100px;
         }
         .logo img{
-            /* font-size: 1.8rem;
-            font-weight: 900;
-            color: #d7b24a; */
             width: 100%;
             height: 100%;
         }
@@ -99,7 +91,7 @@
             min-height: 400px;
             display: flex;
             align-items: center;
-            text-align: right;
+            text-align: center;
             color: #d7b24a;
             position: relative;
         }
@@ -544,12 +536,6 @@
             }
         }
         
-        /* RTL Specific Styles */
-        html[dir="rtl"] .product-item, 
-        html[dir="rtl"] .service-item {
-            text-align: center;
-        }
-        
         /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -563,56 +549,44 @@
 </head>
 <body>
   <div style="width: 100%; height: 250px;">
-    <!-- <img src="./HeaderSmall.jpg" alt=""> -->
-     <img src="./erasebg-transformed.png" alt="" style="width: 100%; height: 100%;">
+    <img src="./erasebg-transformed.png" alt="CIDCO Header" style="width: 100%; height: 100%;">
   </div>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo"><img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt=""></div>
+                <div class="logo"><img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="CIDCO Logo"></div>
                 <ul class="nav-links">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#about">عن الشركة</a></li>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#services">الخدمات</a></li>
-                    <li><a href="./index-EN.html">EN</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="./index.html">AR</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <!-- <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>شركة تطوير الصناعات الإبداعية</h1>
-                <h2>Creative Industries Development Company, CIDCO</h2>
-                <p>www.cidco.tech</p>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Tagline Strip -->
     <section class="tagline">
         <div class="container">
-            <h3>طريق المبدعين ..... للنجاح و التميز</h3>
+            <h3>The Path of Creators..... to Success and Excellence</h3>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">عن شركتنا</h2>
+            <h2 class="section-title">About Our Company</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>رسالتنا ورؤيتنا</h2>
-                    <p>نحن في CIDCO نعمل على تطوير الصناعات الإبداعية ودعم المبدعين في مختلف المجالات. نؤمن بأن الإبداع هو المحرك الأساسي للاقتصاد الحديث ونهدف إلى خلق بيئة داعمة للمبدعين.</p>
-                    <p>نسعى لتحقيق التميز في تقديم خدمات تطوير التصميمات وضمان الجودة والتسويق الدولي للمنتجات الإبداعية وفقاً لأعلى المعايير الدولية.</p>
-                    <a href="#" class="btn">المزيد عنا</a>
+                    <h2>Our Mission and Vision</h2>
+                    <p>At CIDCO, we work on developing creative industries and supporting creators in various fields. We believe that creativity is the main driver of the modern economy and aim to create a supportive environment for creators.</p>
+                    <p>We strive for excellence in providing design development services, quality assurance, and international marketing of creative products according to the highest international standards.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
                 <div class="about-image">
-                    <img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="LogoImage">
+                    <img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="CIDCO Logo">
                 </div>
             </div>
         </div>
@@ -621,31 +595,31 @@
     <!-- Products Grid -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">القطاعات</h2>
+            <h2 class="section-title">Sectors</h2>
             <div class="products-grid">
                 <div class="product-item">
                     <div class="product-img">
-                      <img src="./assest/img/jewelry.jpeg" alt="">
+                      <img src="./assest/img/jewelry.jpeg" alt="Jewelry">
                     </div>
-                    <div class="product-label">الحلي</div>
+                    <div class="product-label">Jewelry</div>
                 </div>
                 <div class="product-item">
                     <div class="product-img">
-                      <img src="./assest/img/leather.png" alt="">
+                      <img src="./assest/img/leather.png" alt="Leather Products">
                     </div>
-                    <div class="product-label">المنتجات الجلدية</div>
+                    <div class="product-label">Leather Products</div>
                 </div>
                 <div class="product-item">
                     <div class="product-img">
-                      <img src="./assest/img/Kilimandcarpet.png" alt="">
+                      <img src="./assest/img/Kilimandcarpet.png" alt="Kilim and Carpets">
                     </div>
-                    <div class="product-label">الكليم و السجاد</div>
+                    <div class="product-label">Kilim and Carpets</div>
                 </div>
                 <div class="product-item">
                     <div class="product-img">
-                      <img src="./assest/img/pottery.png" alt="">
+                      <img src="./assest/img/pottery.png" alt="Pottery">
                     </div>
-                    <div class="product-label">الفخار</div>
+                    <div class="product-label">Pottery</div>
                 </div>
             </div>
         </div>
@@ -654,23 +628,23 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title" style="color: #d7b24a;">خدماتنا لكم</h2>
+            <h2 class="section-title" style="color: #d7b24a;">Our Services</h2>
             <div class="services-grid">
                 <div class="service-item">
                     <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
-                    <h3 class="service-title">تطوير التصميمات</h3>
+                    <h3 class="service-title">Design Development</h3>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="service-title">ضمان الجودة</h3>
+                    <h3 class="service-title">Quality Assurance</h3>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3 class="service-title">التسويق الدولي</h3>
+                    <h3 class="service-title">International Marketing</h3>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fas fa-leaf"></i></div>
-                    <h3 class="service-title">المواصفات الدولية</h3>
+                    <h3 class="service-title">International Specifications</h3>
                 </div>
             </div>
         </div>
@@ -679,19 +653,19 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">آراء عملائنا</h2>
+            <h2 class="section-title">Client Testimonials</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"لقد ساعدتني CIDCO في تطوير منتجاتي وتحقيق وجود قوي في الأسواق الدولية بفضل خدماتها المتميزة."</p>
-                    <p class="testimonial-author">- أحمد السيد</p>
+                    <p class="testimonial-text">"CIDCO helped me develop my products and achieve a strong presence in international markets thanks to their excellent services."</p>
+                    <p class="testimonial-author">- Ahmed Al-Sayed</p>
                 </div>
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"جودة الخدمة والاهتمام بالتفاصيل يجعلان التعامل مع CIDCO تجربة فريدة ومميزة لأي صاحب عمل إبداعي."</p>
-                    <p class="testimonial-author">- فاطمة محمد</p>
+                    <p class="testimonial-text">"The quality of service and attention to detail make dealing with CIDCO a unique and distinctive experience for any creative business owner."</p>
+                    <p class="testimonial-author">- Fatima Mohamed</p>
                 </div>
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"بفضل الدعم المستمر من CIDCO، استطعت تطوير علامتي التجارية وزيادة مبيعاتي بنسبة 200% خلال عام واحد."</p>
-                    <p class="testimonial-author">- خالد عبدالله</p>
+                    <p class="testimonial-text">"Thanks to the continuous support from CIDCO, I was able to develop my brand and increase my sales by 200% within one year."</p>
+                    <p class="testimonial-author">- Khaled Abdullah</p>
                 </div>
             </div>
         </div>
@@ -702,91 +676,45 @@
         <div class="container">
             <div class="cta-grid">
                 <div class="cta-text">
-                    <p>رعاية المبدعين .... و تنمية مستدامة</p>
+                    <p>Supporting Creators .... and Sustainable Development</p>
                 </div>
                 <div class="cta-button">
-                    <h3 style="color: #d7b24a; margin-bottom: 15px;">انضم لطريق النجاح</h3>
+                    <h3 style="color: #d7b24a; margin-bottom: 15px;">Join the Path to Success</h3>
                     <a href="mailto:supplier@cidco.tech" class="btn">supplier@cidco.tech</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">اتصل بنا</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>معلومات التواصل</h3>
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <p>مصر</p>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-phone contact-icon"></i>
-                        <p>+20 12 345 6789</p>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <p>info@cidco.tech</p>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-clock contact-icon"></i>
-                        <p>الأحد - الخميس: 8 صباحاً - 5 مساءً</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3 style="color: #6e3f20; margin-bottom: 20px;">أرسل رسالة</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">الاسم الكامل</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">الرسالة</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">إرسال الرسالة</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-widget">
-                    <h4>عن الشركة</h4>
-                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                    <h4>About the Company</h4>
+                    <p>Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.</p>
                 </div>
                 <div class="footer-widget">
-                    <h4>روابط سريعة</h4>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#about">عن الشركة</a></li>
-                        <li><a href="#products">المنتجات</a></li>
-                        <li><a href="#services">الخدمات</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
-                    <h4>الخدمات</h4>
+                    <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#">تطوير التصميمات</a></li>
-                        <li><a href="#">ضمان الجودة</a></li>
-                        <li><a href="#">التسويق الدولي</a></li>
-                        <li><a href="#">المواصفات الدولية</a></li>
+                        <li><a href="#">Design Development</a></li>
+                        <li><a href="#">Quality Assurance</a></li>
+                        <li><a href="#">International Marketing</a></li>
+                        <li><a href="#">International Specifications</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
-                    <h4>وسائل التواصل</h4>
+                    <h4>Social Media</h4>
                     <div style="display: flex; gap: 15px; margin-top: 15px;">
                         <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
                         <a href="#" style="color: #d7b24a; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
@@ -796,7 +724,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+                <p>© 2025 CIDCO. All Rights Reserved</p>
             </div>
         </div>
     </footer>
