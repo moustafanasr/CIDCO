@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الشركة - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--color-secondary);
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .section-title.light {
+            color: var(--color-light);
+        }
+
+        .section-title.light::after {
+            background: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(215, 178, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--color-primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--color-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            font-size: 28px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-light);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20"/><path d="M0 0L100 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/><path d="M100 0L0 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+        }
+
+        .page-hero-content {
+            width: 100%;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--color-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* About Intro */
+        .about-intro {
+            background-color: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            color: var(--color-primary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        .intro-text p {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .intro-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            width: 100%;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .intro-image img{
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Mission Vision */
+        .mission-vision {
+            background-color: #f8f4ec;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .mv-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mv-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+        }
+
+        .mv-title {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .mv-description {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+        }
+
+        .value-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .value-description {
+            color: #666;
+        }
+
+        /* History Section */
+        .history-section {
+            background-color: #f8f4ec;
+        }
+
+        .timeline {
+                position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex
+;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            width: 2px;
+            background: var(--color-secondary);
+            transform: translateX(50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd){
+            align-self: flex-start;
+            justify-content: flex-end;
+            padding-left: 0;
+            padding-right: 30px;
+            left: -50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            right: -50%;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: auto;
+            left: -10px;
+            border-right: none;
+            border-left: 10px solid white;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: #666;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -10px;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .member-image {
+            height: 250px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .member-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(to right, var(--color-primary), #5a331a);
+            color: var(--color-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-desc {
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, var(--color-accent), #1e2b0c);
+            color: var(--color-light);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            margin-bottom: 35px;
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: #fff;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-widget h4 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--color-secondary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-right: 5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .intro-content, .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 30px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                right: 0;
+            }
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+            .timeline-item:nth-child(odd) .timeline-content::before{
+                        left: 100%;
+        right: unset;
+        transform: rotate(180deg);
+            }
+            /* .timeline-item:nth-child(odd) .timeline-dot::before{
+                        left: 101%;
+        right: unset;
+            } */
+            
+            .timeline-content::before {
+                right: auto;
+                left: -10px;
+                border-right: none;
+                border-left: 10px solid white;
+            }
+            
+            .timeline-dot {
+                /* right: auto; */
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .values-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html" class="active">عن الشركة</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">عن شركتنا</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li>عن الشركة</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Intro -->
+    <section class="section about-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>من نحن</h2>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) هي شركة رائدة في مجال دعم وتطوير الصناعات الإبداعية في المملكة العربية السعودية والمنطقة. تأسست الشركة برؤية طموحة تهدف إلى تعزيز مكانة الصناعات الإبداعية محلياً ودولياً.</p>
+                    <p>نحن نؤمن بأن الإبداع هو المحرك الأساسي للاقتصاد الحديث، ونسعى إلى خلق بيئة داعمة للمبدعين في مختلف المجالات من خلال تقديم حلول متكاملة وشاملة تلبي احتياجاتهم وتواكب تطلعاتهم.</p>
+                    <p>بفضل فريقنا من الخبراء والمتخصصين، نقدم خدمات استشارية وتنموية تساعد الحرفيين والمنشآت الصغيرة والمتوسطة على النمو والمنافسة في الأسواق المحلية والدولية.</p>
+                    <a href="contact.html" class="btn btn-primary">تواصل معنا</a>
+                </div>
+                <div class="intro-image animate">
+                    <img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="شركة تطوير الصناعات الإبداعية">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision -->
+    <section class="section mission-vision">
+        <div class="container">
+            <h2 class="section-title">رؤيتنا ورسالتنا</h2>
+            <div class="mv-grid">
+                <div class="mv-card animate">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mv-title">رؤيتنا</h3>
+                    <p class="mv-description">أن نكون الشركة الرائدة في تطوير الصناعات الإبداعية محلياً وإقليمياً، وأن نسهم في تحويل المملكة العربية السعودية إلى مركز إقليمي للصناعات الإبداعية المتميزة.</p>
+                </div>
+                <div class="mv-card animate">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mv-title">رسالتنا</h3>
+                    <p class="mv-description">تمكين المبدعين والمنشآت الصغيرة والمتوسطة في مجال الصناعات الإبداعية من خلال تقديم حلول متكاملة تشمل التطوير، الجودة، التسويق، والوصول إلى الأسواق العالمية، مع الحفاظ على الهوية الثقافية والأصالة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section">
+        <div class="container">
+            <h2 class="section-title">قيمنا</h2>
+            <div class="values-grid">
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">الجودة</h3>
+                    <p class="value-description">نلتزم بأعلى معايير الجودة في جميع خدماتنا ومنتجاتنا، ونسعى للتميز في كل ما نقدمه.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">الإبداع</h3>
+                    <p class="value-description">نشجع التفكير الإبداعي ونتبنى الأفكار المبتكرة التي تسهم في تطوير الصناعات الإبداعية.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">الشراكة</h3>
+                    <p class="value-description">نؤمن بقوة الشراكة والتعاون مع عملائنا وشركائنا لتحقيق النجاح المشترك.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">المصداقية</h3>
+                    <p class="value-description">نلتزم بالشفافية والمصداقية في جميع تعاملاتنا، ونحافظ على ثقة عملائنا وشركائنا.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="value-title">التنمية المستدامة</h3>
+                    <p class="value-description">نسهم في تحقيق التنمية المستدامة من خلال دعم الصناعات المحلية والحفاظ على التراث الثقافي.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">التركيز على العميل</h3>
+                    <p class="value-description">نضع عملائنا في قلب اهتماماتنا، ونسعى لتلبية احتياجاتهم وتجاوز توقعاتهم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section history-section">
+        <div class="container">
+            <h2 class="section-title">مسيرتنا</h2>
+            <div class="timeline">
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">التأسيس</h3>
+                        <p class="timeline-desc">تأسيس الشركة برؤية طموحة لدعم وتطوير الصناعات الإبداعية في المملكة.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3 class="timeline-title">التوسع الأول</h3>
+                        <p class="timeline-desc">توسيع نطاق الخدمات ليشمل مجالات متعددة من الصناعات الإبداعية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">الوصول إلى الأسواق الدولية</h3>
+                        <p class="timeline-desc">بدء التصدير للأسواق الدولية وبناء شبكة علاقات عالمية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">الجوائز والتكريم</h3>
+                        <p class="timeline-desc">حصول الشركة على عدة جوائز محلية وإقليمية للتميز في مجال الصناعات الإبداعية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">الريادة والابتكار</h3>
+                        <p class="timeline-desc">تطوير منصات رقمية متكاملة لدعم المبدعين والوصول إلى عملاء جدد حول العالم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate">
+                    <div class="stat-number">150+</div>
+                    <h3 class="stat-title">عميل راضي</h3>
+                    <p class="stat-desc">أكثر من 150 عميلاً راضياً عن خدماتنا</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">8</div>
+                    <h3 class="stat-title">سنوات من الخبرة</h3>
+                    <p class="stat-desc">خبرة واسعة في مجال الصناعات الإبداعية</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">12</div>
+                    <h3 class="stat-title">جائزة محلية ودولية</h3>
+                    <p class="stat-desc">حصلنا على 12 جائزة في التميز والإبداع</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">95%</div>
+                    <h3 class="stat-title">عملاء يوصون بنا</h3>
+                    <p class="stat-desc">95% من عملائنا يوصون بخدماتنا للآخرين</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">فريق القيادة</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                فريقنا من الخبراء والمتخصصين الذين يقودون الشركة نحو تحقيق رؤيتها ورسالتها.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">دكتور هانى بركات</h3>
+                        <p class="member-role">المدير التنفيذي</p>
+                        <p class="member-desc">خبرة أكثر من 15 عاماً في قيادة الشركات الناشئة في مجال الصناعات الإبداعية.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">فاطمة محمد</h3>
+                        <p class="member-role">مديرة التطوير</p>
+                        <p class="member-desc">متخصصة في تطوير المنتجات والخدمات الإبداعية مع خبرة تزيد عن 12 عاماً.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">خالد عبدالله</h3>
+                        <p class="member-role">مدير التسويق</p>
+                        <p class="member-desc">خبير في التسويق الدولي للصناعات الإبداعية بخبرة تمتد إلى 10 أعوام.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">سارة أحمد</h3>
+                        <p class="member-role">مديرة الجودة</p>
+                        <p class="member-desc">متخصصة في ضمان الجودة والمواصفات القياسية الدولية للصناعات الإبداعية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">انضم إلى رحلتنا</h2>
+                <p class="cta-description">كن جزءاً من قصة نجاحنا واستفد من خدماتنا المتكاملة لتطوير عملك وتحقيق أهدافك.</p>
+                <a href="contact.html" class="btn btn-primary">تواصل معنا اليوم</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير التصميمات</a></li>
+                        <li><a href="#">ضمان الجودة</a></li>
+                        <li><a href="#">التسويق الدولي</a></li>
+                        <li><a href="#">المواصفات الدولية</a></li>
+                        <li><a href="#">الاستشارات الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #ccc;">
+                        info@cidco.tech<br>
+                        +966 12 345 6789<br>
+                        الرياض، المملكة العربية السعودية
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

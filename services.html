@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--color-secondary);
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .section-title.light {
+            color: var(--color-light);
+        }
+
+        .section-title.light::after {
+            background: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(215, 178, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--color-primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--color-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            font-size: 28px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-light);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20"/><path d="M0 0L100 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/><path d="M100 0L0 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+        }
+
+        .page-hero-content {
+            width: 100%;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--color-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li i {
+            color: var(--color-secondary);
+            margin-left: 10px;
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: #f8f4ec;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 0;
+            left: 0;
+            height: 2px;
+            background: var(--color-secondary);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: #666;
+            padding: 0 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(to right, var(--color-primary), #5a331a);
+            color: var(--color-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .testimonial-text::before {
+            content: "";
+            font-size: 4rem;
+            color: var(--color-secondary);
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            opacity: 0.3;
+            font-family: sans-serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, var(--color-accent), #1e2b0c);
+            color: var(--color-light);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            margin-bottom: 35px;
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f8f4ec;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 300px;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: #fff;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-widget h4 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--color-secondary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="./index.html">الرئيسية</a></li>
+                    <li><a href="./about.html">عن الشركة</a></li>
+                    <li><a href="./products.html">المنتجات</a></li>
+                    <li><a href="./services.html" class="active">الخدمات</a></li>
+                    <li><a href="./contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">خدماتنا</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li>خدماتنا</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                نقدم مجموعة متكاملة من الخدمات المصممة خصيصًا لتلبية احتياجات المبدعين والمنشآت الصغيرة والمتوسطة في مجال الصناعات الإبداعية.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="service-title">تطوير التصميمات</h3>
+                    <p class="service-description">نساعدك في تطوير تصاميم مبتكرة وجذابة تلبي احتياجات السوق وتواكب أحدث الاتجاهات العالمية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصميم منتجات مبتكرة</li>
+                        <li><i class="fas fa-check"></i> دراسة اتجاهات السوق</li>
+                        <li><i class="fas fa-check"></i> تطوير هوية بصرية متكاملة</li>
+                        <li><i class="fas fa-check"></i> تصميم تجربة المستخدم</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">ضمان الجودة</h3>
+                    <p class="service-description">نضمن أعلى معايير الجودة لمنتجاتك من خلال أنظمة مراقبة وتقييم صارمة وفق المعايير الدولية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> مراقبة الجودة الشاملة</li>
+                        <li><i class="fas fa-check"></i> اختبارات الأداء والمتانة</li>
+                        <li><i class="fas fa-check"></i> معايير السلامة العالمية</li>
+                        <li><i class="fas fa-check"></i> تقارير ضمان الجودة</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="service-title">التسويق الدولي</h3>
+                    <p class="service-description">نفتح لك آفاق التصدير والتسويق العالمي من خلال شبكة علاقاتنا الدولية وخبراتنا التسويقية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> استراتيجيات التسويق الدولي</li>
+                        <li><i class="fas fa-check"></i> المشاركة في المعارض العالمية</li>
+                        <li><i class="fas fa-check"></i> بناء شبكة توزيع دولية</li>
+                        <li><i class="fas fa-check"></i> دراسات الأسواق العالمية</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="service-title">المواصفات الدولية</h3>
+                    <p class="service-description">نساعدك في الحصول على الشهادات الدولية المعتمدة التي تفتح الأسواق العالمية أمام منتجاتك.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> شهادات الجودة الدولية</li>
+                        <li><i class="fas fa-check"></i> متطلبات المواصفات القياسية</li>
+                        <li><i class="fas fa-check"></i> شهادات المطابقة البيئية</li>
+                        <li><i class="fas fa-check"></i> متابعة تجديد الشهادات</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">الاستشارات الإدارية</h3>
+                    <p class="service-description">نقدم استشارات متخصصة في إدارة المشاريع الإبداعية وتطوير خطط العمل والنمو الاستراتيجي.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تطوير خطط العمل</li>
+                        <li><i class="fas fa-check"></i> دراسات الجدوى الاقتصادية</li>
+                        <li><i class="fas fa-check"></i> التخطيط الاستراتيجي</li>
+                        <li><i class="fas fa-check"></i> إدارة المشاريع الإبداعية</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">التدريب والتأهيل</h3>
+                    <p class="service-description">ننظم برامج تدريبية متخصصة لتطوير مهارات الحرفيين والمبدعين في مختلف المجالات.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> ورش عمل متخصصة</li>
+                        <li><i class="fas fa-check"></i> برامج تطوير المهارات</li>
+                        <li><i class="fas fa-check"></i> استشارات فنية متخصصة</li>
+                        <li><i class="fas fa-check"></i> تأهيل للأسواق الدولية</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">اكتشف المزيد</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <h2 class="section-title">كيفية عملنا</h2>
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-step animate">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">التشاور الأولي</h3>
+                    <p class="step-description">نبدأ بفهم احتياجاتك وأهدافك من خلال جلسات تشاورية متعمقة.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step animate">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">التخطيط الاستراتيجي</h3>
+                    <p class="step-description">نطور خطة عمل مفصلة تلبي أهدافك وتتناسب مع إمكانياتك.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step animate">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">التنفيذ والتطوير</h3>
+                    <p class="step-description">ننفذ الخطة باحترافية عالية مع مراعاة الجودة والتفاصيل.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step animate">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">المتابعة والدعم</h3>
+                    <p class="step-description">نقدم الدعم المستمر والمراجعات الدورية لضمان استمرارية النجاح.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title light">ماذا يقول عملاؤنا</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card animate">
+                    <p class="testimonial-text">"بفضل خدمات CIDCO الاستشارية، استطعت تطوير علامتي التجارية وزيادة مبيعاتي بنسبة 200% خلال عام واحد."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">خ</div>
+                        <div class="author-info">
+                            <div class="author-name">خالد عبدالله</div>
+                            <div class="author-role">مالك متجر للمنتجات الجلدية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card animate">
+                    <p class="testimonial-text">"لقد ساعدتني CIDCO في الحصول على شهادات الجودة الدولية التي فتحت لي أسواقًا جديدة في أوروبا."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س</div>
+                        <div class="author-info">
+                            <div class="author-name">سارة أحمد</div>
+                            <div class="author-role">صاحبة مصنع للفخار</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card animate">
+                    <p class="testimonial-text">"برامج التدريب التي قدمتها CIDco كانت نقطة التحول في مشواري المهني، حيث تعلمت أحدث التقنيات في صناعة الحلي."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م</div>
+                        <div class="author-info">
+                            <div class="author-name">محمد السيد</div>
+                            <div class="author-role">حرفي متخصص في صناعة الحلي</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">أسئلة شائعة</h2>
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        ما هي مدة تنفيذ المشروع؟ <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تختلف مدة التنفيذ حسب طبيعة المشروع وتعقيده. بشكل عام، تتراوح المدة بين 4 إلى 12 أسبوعًا للمشاريع المتوسطة. نقدم جدولاً زمنياً مفصلاً بعد دراسة متطلبات المشروع.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        هل تقدمون خدمات للافراد أم للشركات فقط؟ <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقدم خدماتنا لكل من الأفراد والشركات. سواء كنت حرفيًا مستقلًا أو تمتلك مشروعًا صغيرًا أو متوسطة الحجم أو حتى شركة كبيرة، لدينا حلول مصممة خصيصًا لاحتياجاتك.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        ما هي تكلفة الخدمات؟ <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تختلف التكلفة حسب نوع الخدمة ومدى تعقيدها. نقدم عروض أسعار شفافة بعد تقييم احتياجاتك. كما نقدم باقات متعددة تناسب مختلف الميزانيات.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item animate">
+                    <div class="faq-question">
+                        هل تقدمون دعمًا بعد انتهاء المشروع؟ <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم حزمة دعم شاملة بعد انتهاء المشروع تشمل متابعة الأداء، استشارات دورية، ودعم فني حسب الحاجة. مدة الدعم تختلف حسب الباقة المختارة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">مستعد لبدء مشروعك؟</h2>
+                <p class="cta-description">تواصل معنا اليوم لتحصل على استشارة مجانية ومناقشة كيف يمكننا مساعدتك في تطوير عملك وتحقيق أهدافك.</p>
+                <a href="contact.html" class="btn btn-primary">اتصل بنا الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير التصميمات</a></li>
+                        <li><a href="#">ضمان الجودة</a></li>
+                        <li><a href="#">التسويق الدولي</a></li>
+                        <li><a href="#">المواصفات الدولية</a></li>
+                        <li><a href="#">الاستشارات الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // FAQ accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    
+                    // Close all other answers
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        if (item !== answer && item.classList.contains('active')) {
+                            item.classList.remove('active');
+                            item.previousElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current answer
+                    question.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجاتنا - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--color-secondary);
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        /* Header Styles */
+        .header {
+        
+            background-color: #6e3f20;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        /* .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        } */
+
+        /* .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        } */
+
+        /* .logo span {
+            color: var(--color-light);
+        } */
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            font-size: 28px;
+
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-light);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20"/><path d="M0 0L100 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/><path d="M100 0L0 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+        }
+
+        .page-hero-content {
+            width: 100%;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--color-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Products Filter */
+        .products-filter {
+            background-color: var(--color-light);
+            padding: 30px 0;
+            margin-bottom: 50px;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--color-primary);
+            color: var(--color-light);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, #ddd, #eee);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+        }
+
+        .product-cta {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .product-cta i {
+            margin-left: 8px;
+        }
+
+        .product-cta:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        /* Products Categories */
+        .categories-section {
+            background-color: #f8f4ec;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-image {
+            height: 180px;
+            width: 100%;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        .category-image img{
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .category-content {
+            padding: 25px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .category-link {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .category-link i {
+            margin-right: 8px;
+        }
+
+        .category-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: #fff;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-widget h4 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--color-secondary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid, .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="./index.html">الرئيسية</a></li>
+                    <li><a href="./about.html">عن الشركة</a></li>
+                    <li><a href="./products.html" class="active">المنتجات</a></li>
+                    <li><a href="./services.html">الخدمات</a></li>
+                    <li><a href="./contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">منتجاتنا</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li>منتجاتنا</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Filter -->
+    <section class="products-filter">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="jewelry">الحلي</button>
+                <button class="filter-btn" data-filter="leather">المنتجات الجلدية</button>
+                <button class="filter-btn" data-filter="kilim">الكليم والسجاد</button>
+                <button class="filter-btn" data-filter="pottery">الفخار</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا المميزة</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card animate" data-category="jewelry">
+                    <div class="product-image">
+                        <span class="product-badge">جديد</span>
+                         الحلي
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مجموعة الحلي التقليدية</h3>
+                        <p class="product-description">مجموعة مميزة من الحلي التقليدية المصنوعة يدوياً بأفضل المواد والخامات، تجمع بين الأصالة والأناقة.</p>
+                        <div class="product-meta">
+                            <span class="product-price">350 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card animate" data-category="leather">
+                    <div class="product-image">
+                        <span class="product-badge">الأكثر مبيعاً</span>
+                        المنتجات الجلدية
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">حقيبة جلدية فاخرة</h3>
+                        <p class="product-description">حقيبة جلدية فاخرة مصنوعة يدوياً من الجلد الطبيعي، بتصميم عصري يجمع بين الجمال والمتانة.</p>
+                        <div class="product-meta">
+                            <span class="product-price">720 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card animate" data-category="kilim">
+                    <div class="product-image">
+                        الكليم والسجاد
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">سجادة يدوية الصنع</h3>
+                        <p class="product-description">سجادة فاخرة مصنوعة يدوياً بنقوش تقليدية وألوان مستوحاة من التراث العربي الأصيل.</p>
+                        <div class="product-meta">
+                            <span class="product-price">1,250 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card animate" data-category="pottery">
+                    <div class="product-image">
+                        الفخار
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مجموعة فخارية فنية</h3>
+                        <p class="product-description">مجموعة من القطع الفخارية الفنية التي تجمع بين الجمال والوظيفية، مصنوعة بدقة عالية.</p>
+                        <div class="product-meta">
+                            <span class="product-price">480 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card animate" data-category="jewelry">
+                    <div class="product-image">
+                        <span class="product-badge">جديد</span>
+                        الحلي
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">أساور فضية منقوشة</h3>
+                        <p class="product-description">أساور فضية رقيقة منقوشة بتصاميم تقليدية فريدة، مناسبة للمناسبات الخاصة واليومية.</p>
+                        <div class="product-meta">
+                            <span class="product-price">290 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card animate" data-category="leather">
+                    <div class="product-image">
+                        المنتجات الجلدية
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">محفظة جلدية رجالية</h3>
+                        <p class="product-description">محفظة جلدية عالية الجودة بتصميم أنيق وعملي، تحتوي على多个 جيوب منظمة.</p>
+                        <div class="product-meta">
+                            <span class="product-price">380 ر.س</span>
+                            <button class="product-cta">
+                                <i class="fas fa-shopping-cart"></i>
+                                أضف إلى السلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories-section">
+        <div class="container">
+            <h2 class="section-title">فئات المنتجات</h2>
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <div class="category-card animate">
+                    <div class="category-image">
+                        <!-- <i class="fas fa-gem"></i> -->
+                        <img src="./assest/img/jewelry.jpeg" alt="">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">الحلي والمجوهرات</h3>
+                        <a href="#" class="category-link">
+                            <i class="fas fa-arrow-left"></i>
+                            استكشاف الفئة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card animate">
+                    <div class="category-image">
+                        <!-- <i class="fas fa-briefcase"></i> -->
+                         <img src="./assest/img/leather.png" alt="">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">المنتجات الجلدية</h3>
+                        <a href="#" class="category-link">
+                            <i class="fas fa-arrow-left"></i>
+                            استكشاف الفئة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card animate">
+                    <div class="category-image">
+                        <!-- <i class="fas fa-rug"></i> -->
+                         <img src="./assest/img/Kilimandcarpet.png" alt="">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">الكليم والسجاد</h3>
+                        <a href="#" class="category-link">
+                            <i class="fas fa-arrow-left"></i>
+                            استكشاف الفئة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card animate">
+                    <div class="category-image">
+                        <!-- <i class="fas fa-mortar-pestle"></i> -->
+                         <img src="./assest/img/pottery.png" alt="">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">الفخار والتحف</h3>
+                        <a href="#" class="category-link">
+                            <i class="fas fa-arrow-left"></i>
+                            استكشاف الفئة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير التصميمات</a></li>
+                        <li><a href="#">ضمان الجودة</a></li>
+                        <li><a href="#">التسويق الدولي</a></li>
+                        <li><a href="#">المواصفات الدولية</a></li>
+                        <li><a href="#">الاستشارات الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Products filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
