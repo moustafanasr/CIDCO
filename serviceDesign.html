@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطوير التصميمات - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s ease;
+            --border-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #8b5a3c 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #e5c870 100%);
+            --gradient-design: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.7;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 3rem;
+            margin-bottom: 60px;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+
+        .section-title.light {
+            color: var(--color-light);
+        }
+
+        .section-title.light::after {
+            background: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: var(--color-primary);
+            box-shadow: 0 6px 20px rgba(215, 178, 74, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(110, 63, 32, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(110, 63, 32, 0.98);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            color: var(--color-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            font-size: 28px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient-design);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 15px;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Service Detail */
+        .service-detail {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-secondary);
+            opacity: 0.05;
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            z-index: 0;
+        }
+
+        .service-detail::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-design);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-text h2 {
+            color: var(--color-primary);
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .service-text p {
+            color: var(--color-text);
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 35px 0;
+        }
+
+        .service-features li {
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .service-features li:hover {
+            background-color: rgba(215, 178, 74, 0.05);
+            padding-right: 15px;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li i {
+            color: var(--color-secondary);
+            margin-left: 18px;
+            font-size: 1.3rem;
+            background: rgba(110, 63, 32, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .service-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            height: 450px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .service-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image i {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            top: 0;
+            right: 0;
+            background: var(--gradient-design);
+            opacity: 0.1;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 70px 0;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(110, 63, 32, 0.3);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(110, 63, 32, 0.4);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: #666;
+            padding: 0 15px;
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: white;
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--color-secondary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            bottom: 0;
+            right: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: rotateY(180deg);
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .benefit-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            background: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .portfolio-description {
+            color: var(--color-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #1e2b0c 100%);
+            color: var(--color-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .cta-description {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: #fff;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-widget h4 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--color-secondary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 50px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .page-hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--color-primary);
+                width: 280px;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-text h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+            }
+            
+            .breadcrumb {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .breadcrumb li:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(215, 178, 74, 0.7);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 15px rgba(215, 178, 74, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(215, 178, 74, 0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">عن الشركة</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title animate__animated animate__fadeInDown">تطوير التصميمات</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li>تطوير التصميمات</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="section service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>خدمة تطوير التصميمات</h2>
+                    <p>نقدم في CIDCO خدمات تطوير التصميمات المتكاملة التي تساعدك على تحويل أفكارك إلى منتجات ملموسة وجذابة. نعمل على دراسة متطلبات السوق وتطوير تصاميم مبتكرة تلبي احتياجات العملاء وتواكب أحدث الاتجاهات العالمية.</p>
+                    <p>باستخدام أحدث التقنيات وأساليب التصميم المبتكرة، نضمن لك الحصول على منتجات فريدة تجمع بين الأصالة والحداثة، وتتميز بجودة عالية وقابلية للتسويق عالمياً.</p>
+                    
+                    <h3>مميزات الخدمة</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تصميم منتجات مبتكرة وجذابة</li>
+                        <li><i class="fas fa-check"></i> دراسة متعمقة لاتجاهات السوق</li>
+                        <li><i class="fas fa-check"></i> تطوير هوية بصرية متكاملة</li>
+                        <li><i class="fas fa-check"></i> تصميم تجربة مستخدم متميزة</li>
+                        <li><i class="fas fa-check"></i> استخدام أحدث تقنيات التصميم</li>
+                        <li><i class="fas fa-check"></i> مراعاة الجوانب الوظيفية والجمالية</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-primary pulse">اطلب الخدمة الآن <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image animate floating">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>إبداع وتصميم</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <h2 class="section-title">كيفية تقديم الخدمة</h2>
+            <div class="process-steps">
+                <div class="process-step animate">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">الاستشارة الأولية</h3>
+                    <p class="step-description">نبدأ بفهم احتياجاتك وأهدافك من خلال جلسات تشاورية متعمقة.</p>
+                </div>
+
+                <div class="process-step animate">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">دراسة السوق</h3>
+                    <p class="step-description">نجري دراسة متعمقة للسوق والمنافسين لضمان تميز تصميماتك.</p>
+                </div>
+
+                <div class="process-step animate">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">التصميم الأولي</h3>
+                    <p class="step-description">نطور تصاميم أولية ونعرضها عليك للحصول على ملاحظاتك.</p>
+                </div>
+
+                <div class="process-step animate">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">التنفيذ النهائي</h3>
+                    <p class="step-description">ننفذ التصميم النهائي ونسلمك المنتج بكافة التفاصيل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- <section class="section portfolio-section">
+        <div class="container">
+            <h2 class="section-title">أعمالنا في التصميم</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">تصميم الهوية البصرية</h3>
+                        <p class="portfolio-description">هوية متكاملة لعلامة تجارية جديدة</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">تصميم تطبيقات الجوال</h3>
+                        <p class="portfolio-description">واجهات مستخدم جذابة وسهلة الاستخدام</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">تصميم المتاجر الإلكترونية</h3>
+                        <p class="portfolio-description">تجربة تسوق فريدة ومميزة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2 class="section-title">فوائد خدمة تطوير التصميمات</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="benefit-title">تميز في السوق</h3>
+                    <p class="benefit-description">تصميمات مبتكرة تجعل منتجاتك تبرز في السوق وتجذب انتباه العملاء.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">رضا العملاء</h3>
+                    <p class="benefit-description">تصميمات تركز على تجربة المستخدم وتلبي توقعات العملاء.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">زيادة المبيعات</h3>
+                    <p class="benefit-description">تصميمات جذابة تزيد من قيمة المنتج وتحسن معدلات المبيعات.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="benefit-title">جودة عالية</h3>
+                    <p class="benefit-description">استخدام مواد وتقنيات عالية الجودة تضمن متانة المنتج وجماليته.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="benefit-title">عالمية التصميم</h3>
+                    <p class="benefit-description">تصميمات تلبي المعايير العالمية وتناسب مختلف الثقافات والأسواق.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">ابتكار دائم</h3>
+                    <p class="benefit-description">مواكبة أحدث اتجاهات التصميم وتقديم حلول مبتكرة باستمرار.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">مستعد لتطوير تصاميم منتجاتك؟</h2>
+                <p class="cta-description">تواصل معنا اليوم لتحصل على استشارة مجانية ومناقشة كيف يمكننا مساعدتك في تطوير تصاميم مبتكرة لمنتجاتك.</p>
+                <a href="contact.html" class="btn btn-primary pulse">اطلب استشارة مجانية <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                        <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                        <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                        <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                        <li><a href="./serviceConsulting.html">الاستشارات الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

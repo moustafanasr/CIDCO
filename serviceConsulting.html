@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاستشارات الإدارية - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #8b5a3c 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #e5c870 100%);
+            --gradient-consulting: linear-gradient(135deg, #5c2d09 0%, #8c5e3b 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+
+        .section-title.light {
+            color: var(--color-light);
+        }
+
+        .section-title.light::after {
+            background: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(215, 178, 74, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(110, 63, 32, 0.95);
+            padding: 18px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .header.scrolled {
+            padding: 12px 0;
+            background-color: rgba(110, 63, 32, 0.98);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            color: var(--color-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            font-size: 28px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient-consulting);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 12px;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Service Detail */
+        .service-detail {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-secondary);
+            opacity: 0.05;
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            z-index: 0;
+        }
+
+        .service-detail::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-consulting);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-text h2 {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .service-text p {
+            color: var(--color-text);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 35px 0;
+        }
+
+        .service-features li {
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .service-features li:hover {
+            background-color: rgba(215, 178, 74, 0.05);
+            padding-right: 15px;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li i {
+            color: var(--color-secondary);
+            margin-left: 18px;
+            font-size: 1.3rem;
+            background: rgba(110, 63, 32, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .service-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            height: 450px;
+            background: linear-gradient(45deg, #5c2d09, #8c5e3b);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .service-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image i {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Consulting Services Section */
+        .consulting-services {
+            background-color: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consulting-services::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            top: 0;
+            right: 0;
+            background: var(--gradient-consulting);
+            opacity: 0.1;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card-header {
+            background: var(--gradient-consulting);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-body p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-card-body ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-card-body li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .service-card-body li i {
+            color: var(--color-secondary);
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            background: white;
+            position: relative;
+        }
+
+        .approach-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .approach-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .approach-step:hover {
+            background: #f0f0f0;
+            transform: translateX(-10px);
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-consulting);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-title {
+            color: var(--color-primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8f4ec;
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid #8c5e3b;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-consulting);
+            bottom: 0;
+            right: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: #8c5e3b;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(44, 85, 48, 0.1);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: rotateY(180deg);
+            background: var(--gradient-consulting);
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .benefit-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 5rem;
+            color: rgba(44, 85, 48, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-consulting);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-consulting);
+            color: var(--color-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .cta-description {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: #fff;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-widget h4 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--color-secondary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            color: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .approach-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+            padding: 80px 0;
+            }
+            
+            .page-hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--color-primary);
+                width: 280px;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+            
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-text h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+            }
+            
+            .breadcrumb {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .breadcrumb li:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(215, 178, 74, 0.7);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 15px rgba(215, 178, 74, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(215, 178, 74, 0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">عن الشركة</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title animate__animated animate__fadeInDown">الاستشارات الإدارية</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li>الاستشارات الإدارية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="section service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>خدمة الاستشارات الإدارية</h2>
+                    <p>نقدم في CIDCO خدمات استشارات إدارية متكاملة تساعد مؤسستك على تحقيق أقصى استفادة من مواردها وزيادة كفاءة عملياتها. نعمل معك لوضع استراتيجيات فعالة وتنفيذ حلول مبتكرة تتحدى التوقعات.</p>
+                    <p>باستخدام خبرائنا المعتمدين ذوي الخبرة الواسعة في مختلف القطاعات، نساعدك في تحسين أداء مؤسستك وزيادة قدرتها التنافسية في السوق المحلي والعالمي.</p>
+                    
+                    <h3>مميزات الخدمة</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> تحليل شامل للوضع الحالي للمؤسسة</li>
+                        <li><i class="fas fa-check"></i> وضع استراتيجيات تطوير متكاملة</li>
+                        <li><i class="fas fa-check"></i> تحسين العمليات الإدارية والتنظيمية</li>
+                        <li><i class="fas fa-check"></i> تطوير نظم تقييم الأداء والمؤشرات</li>
+                        <li><i class="fas fa-check"></i> استشارات متخصصة в إدارة التغيير</li>
+                        <li><i class="fas fa-check"></i> تدريب الكوادر الإدارية وتطوير المهارات</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-primary pulse">اطلب الخدمة الآن <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="service-image animate floating">
+                    <i class="fas fa-chart-line"></i>
+                    <span>التخطيط الاستراتيجي</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Services Section -->
+    <section class="section consulting-services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا الاستشارية</h2>
+            <div class="services-grid">
+                <div class="service-card animate">
+                    <div class="service-card-header">
+                        <h3>التخطيط الاستراتيجي</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>نساعدك في وضع خطط استراتيجية واضحة تحدد رؤية ورسالة المؤسسة وأهدافها طويلة المدى.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> تحليل البيئة الداخلية والخارجية</li>
+                            <li><i class="fas fa-check"></i> صياغة الرؤية والرسالة والقيم</li>
+                            <li><i class="fas fa-check"></i> وضع الأهداف الاستراتيجية</li>
+                            <li><i class="fas fa-check"></i> تصميم مؤشرات قياس الأداء</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate">
+                    <div class="service-card-header">
+                        <h3>إدارة العمليات</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>نعمل على تحسين وتطوير العمليات الإدارية لزيادة الكفاءة وخفض التكاليف.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> تحسين وتطوير العمليات</li>
+                            <li><i class="fas fa-check"></i> إعادة هندسة العمليات الإدارية</li>
+                            <li><i class="fas fa-check"></i> تحسين تجربة العملاء</li>
+                            <li><i class="fas fa-check"></i> تطبيق معايير الجودة الشاملة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate">
+                    <div class="service-card-header">
+                        <h3>التطوير التنظيمي</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>نساعد في تصميم الهيكل التنظيمي الأمثل وتطوير نظم العمل والسياسات الإدارية.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> تصميم الهياكل التنظيمية</li>
+                            <li><i class="fas fa-check"></i> تطوير الوصف الوظيفي</li>
+                            <li><i class="fas fa-check"></i> وضع نظم تقييم الأداء</li>
+                            <li><i class="fas fa-check"></i> تطوير السياسات والإجراءات</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate">
+                    <div class="service-card-header">
+                        <h3>إدارة التغيير</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>نقدم الدعم والاستشارات اللازمة لإدارة عملية التغيير بشكل فعال وناجح.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> إعداد خطط إدارة التغيير</li>
+                            <li><i class="fas fa-check"></i> إدارة مقاومة التغيير</li>
+                            <li><i class="fas fa-check"></i> تدريب فرق العمل على التكيف</li>
+                            <li><i class="fas fa-check"></i> متابعة وتقييم عملية التغيير</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="section approach-section">
+        <div class="container">
+            <h2 class="section-title">منهجية عملنا</h2>
+            <div class="approach-steps">
+                <div class="approach-step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">التشخيص والتحليل</h3>
+                        <p class="step-description">نبدأ بفهم عميق لطبيعة عملك، وتحديد التحديات والفرص من خلال تحليل شامل للبيئة الداخلية والخارجية لمؤسستك.</p>
+                    </div>
+                </div>
+
+                <div class="approach-step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">التخطيط والتصميم</h3>
+                        <p class="step-description">نصمم حلولاً مخصصة تناسب احتياجاتك الخاصة، مع وضع خطط عمل واضحة وجداول زمنية واقعية لتحقيق الأهداف.</p>
+                    </div>
+                </div>
+
+                <div class="approach-step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">التنفيذ والدعم</h3>
+                        <p class="step-description">نقدم الدعم الكامل خلال مرحلة التنفيذ، مع مرونة للتكيف مع أي تغييرات أو تحديات قد تظهر خلال عملية التطبيق.</p>
+                    </div>
+                </div>
+
+                <div class="approach-step animate">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">المتابعة والتقييم</h3>
+                        <p class="step-description">نقوم بمتابعة مستمرة لضمان تحقيق النتائج المرجوة، مع تقييم الأداء وإجراء التعديلات اللازمة لتحسين النتائج.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2 class="section-title">فوائد الاستشارات الإدارية</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="benefit-title">تحسين الأداء</h3>
+                    <p class="benefit-description">زيادة كفاءة العمليات الإدارية وتحسين الأداء العام للمؤسسة من خلال حلول مبتكرة.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="benefit-title">تخفيض التكاليف</h3>
+                    <p class="benefit-description">تحديد مجالات الهدر وتقليل التكاليف التشغيلية وزيادة الربحية من خلال تحسين العمليات.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">ابتكار الحلول</h3>
+                    <p class="benefit-description">تقديم حلول إبداعية وغير تقليدية للتحديات الإدارية التي تواجهها مؤسستك.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">تطوير الكوادر</h3>
+                    <p class="benefit-description">رفع كفاءة الكوادر الإدارية وتطوير مهاراتهم لقيادة التغيير وتحقيق الأهداف.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">تقليل المخاطر</h3>
+                    <p class="benefit-description">تحديد المخاطر المحتملة ووضع استراتيجيات فعالة للتعامل معها وتقليل آثارها.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="benefit-title">ميزة تنافسية</h3>
+                    <p class="benefit-description">اكتساب ميزة تنافسية في السوق من خلال تبني أفضل الممارسات الإدارية والتقنيات الحديثة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card animate">
+                    <p class="testimonial-content">"ساعدتنا استشارات CIDCO الإدارية على إعادة هيكلة شركتنا بالكامل، مما أدى إلى زيادة الإنتاجية بنسبة 40% وتخفيض التكاليف التشغيلية بشكل ملحوظ."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م</div>
+                        <div class="author-info">
+                            <h4>محمد السعدي</h4>
+                            <p>مدير عام شركة التقنية المتطورة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate">
+                    <p class="testimonial-content">"الاستشارات الإدارية التي قدمها فريق CIDCO كانت محورية في تحويل مسار مؤسستنا. استراتيجياتهم المبتكرة ساعدتنا في دخول أسواق جديدة وزيادة حصتنا السوقية."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س</div>
+                        <div class="author-info">
+                            <h4>سارة العبدالله</h4>
+                            <p>الرئيس التنفيذي لمجموعة الأعمال المتحدة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate">
+                    <p class="testimonial-content">"ما يميز CIDCO هو فهمهم العميق لطبيعة عملنا وتقديمهم حلولاً مخصصة تناسب احتياجاتنا. استشاراتهم ساهمت в تحسين بيئة العمل ورفع معنويات الموظفين."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">خ</div>
+                        <div class="author-info">
+                            <h4>خالد الفهد</h4>
+                            <p>مدير الموارد البشرية بشركة النهضة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">مستعد لتحويل مؤسستك؟</h2>
+                <p class="cta-description">تواصل معنا اليوم لتحصل على استشارة إدارية متخصصة تساعدك على تحقيق أهداف مؤسستك وتميزها في السوق.</p>
+                <a href="contact.html" class="btn btn-primary pulse">اطلب استشارة مجانية <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>عن الشركة</h4>
+                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                        <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                        <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                        <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                        <li><a href="./serviceConsulting.html">الاستشارات الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>وسائل التواصل</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    // Change icon based on menu state
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (navMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Close mobile menu when clicking on links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navMenu) {
+                        navMenu.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            if (animateElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                animateElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // Add animation to hero text
+            const heroTitle = document.querySelector('.page-hero-title');
+            if (heroTitle) {
+                heroTitle.classList.add('animate__animated', 'animate__fadeInDown');
+            }
+            
+            // Initialize pulse animations
+            const pulseElements = document.querySelectorAll('.pulse');
+            pulseElements.forEach(el => {
+                el.style.animation = 'pulse 2s infinite';
+            });
+            
+            // Initialize floating animations
+            const floatingElements = document.querySelectorAll('.floating');
+            floatingElements.forEach(el => {
+                el.style.animation = 'floating 3s ease-in-out infinite';
+            });
+            
+            console.log('All JavaScript initialized successfully');
+        });
+
+        // Fallback in case DOMContentLoaded doesn't fire
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScript);
+        } else {
+            initScript();
+        }
+        
+        function initScript() {
+            console.log('Initializing script...');
+            // Additional initialization if needed
+        }
+    </script>
+</body>
+</html>

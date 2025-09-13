@@ -6,6 +6,8 @@
     <title>عن الشركة - CIDCO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mainStyle.css">
+
     <style>
         :root {
             --color-primary: #6e3f20;
@@ -113,99 +115,9 @@
             transform: translateY(-3px);
         }
 
-        /* Header Styles */
-        .header {
-            background-color: var(--color-primary);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            padding: 10px 0;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--color-secondary);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--color-light);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links a {
-            color: var(--color-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-            font-size: 28px;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            right: 0;
-            background-color: var(--color-secondary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--color-light);
-        }
-
         /* Page Hero */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20"/><path d="M0 0L100 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/><path d="M100 0L0 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -213,6 +125,18 @@
             align-items: center;
             color: var(--color-light);
             text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110, 63, 32, 0.8) 0%, rgba(215, 178, 74, 0.4) 100%);
+            z-index: -1;
         }
 
         .page-hero-content {
@@ -223,12 +147,15 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
         }
 
         .breadcrumb {
             display: flex;
             justify-content: center;
             list-style: none;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
         }
 
         .breadcrumb li {
@@ -285,28 +212,68 @@
             box-shadow: var(--shadow);
             height: 400px;
             width: 100%;
-            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
             font-weight: 700;
+            transition: var(--transition);
         }
-        .intro-image img{
+        
+        .intro-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .intro-image img {
             height: 100%;
             width: 100%;
+            /* object-fit: cover; */
+            transition: var(--transition);
+        }
+        
+        .intro-image:hover img {
+            transform: scale(1.05);
         }
 
         /* Mission Vision */
         .mission-vision {
             background-color: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(215, 178, 74, 0.1);
+            z-index: 0;
+        }
+
+        .mission-vision::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+            z-index: 0;
         }
 
         .mv-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .mv-card {
@@ -316,6 +283,23 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 0;
+            background: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .mv-card:hover::before {
+            height: 100%;
         }
 
         .mv-card:hover {
@@ -327,17 +311,23 @@
             font-size: 3rem;
             color: var(--color-secondary);
             margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         .mv-title {
             font-size: 1.8rem;
             color: var(--color-primary);
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .mv-description {
             color: #666;
             line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
         /* Values Section */
@@ -358,6 +348,24 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 0;
+            background: var(--color-light);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .value-card:hover::before {
+            height: 100%;
         }
 
         .value-card:hover {
@@ -376,34 +384,46 @@
             height: 80px;
             border-radius: 50%;
             background: rgba(110, 63, 32, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--color-primary);
+            color: var(--color-light);
         }
 
         .value-title {
             font-size: 1.4rem;
             color: var(--color-primary);
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .value-description {
             color: #666;
+            position: relative;
+            z-index: 1;
         }
 
         /* History Section */
         .history-section {
             background-color: #f8f4ec;
+            position: relative;
         }
 
         .timeline {
-                position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex
-;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
         }
 
         .timeline::before {
@@ -425,7 +445,8 @@
             margin-bottom: 60px;
             width: 50%;
         }
-        .timeline-item:nth-child(odd){
+        
+        .timeline-item:nth-child(odd) {
             align-self: flex-start;
             justify-content: flex-end;
             padding-left: 0;
@@ -448,6 +469,12 @@
             box-shadow: var(--shadow);
             width: 100%;
             position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .timeline-content::before {
@@ -495,6 +522,12 @@
             border-radius: 50%;
             background: var(--color-secondary);
             z-index: 1;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(215, 178, 74, 0.3);
         }
 
         .timeline-item:nth-child(even) .timeline-dot {
@@ -520,6 +553,23 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to top, var(--color-primary), transparent);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .team-member:hover::before {
+            height: 100%;
         }
 
         .team-member:hover {
@@ -535,10 +585,25 @@
             justify-content: center;
             color: white;
             font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
         }
 
         .member-info {
             padding: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .member-name {
@@ -562,17 +627,34 @@
         .stats-section {
             background: linear-gradient(to right, var(--color-primary), #5a331a);
             color: var(--color-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50 L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0 L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.1;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            position: relative;
         }
 
         .stat-item {
             text-align: center;
             padding: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-number {
@@ -580,6 +662,11 @@
             font-weight: 800;
             color: var(--color-secondary);
             margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
         }
 
         .stat-title {
@@ -597,11 +684,33 @@
             color: var(--color-light);
             text-align: center;
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><circle cx="50" cy="50" r="40" stroke="%23d7b24a" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
+            background-size: 80px 80px;
+            animation: rotate 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-title {
@@ -620,6 +729,17 @@
             background-color: var(--color-dark);
             color: #fff;
             padding: 70px 0 30px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
         }
 
         .footer-grid {
@@ -659,6 +779,7 @@
             color: #ccc;
             text-decoration: none;
             transition: var(--transition);
+            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -698,6 +819,38 @@
             font-size: 0.9rem;
         }
 
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--color-primary);
+            color: var(--color-light);
+            transform: translateY(-5px);
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .footer-grid {
@@ -725,18 +878,16 @@
             .timeline-item:nth-child(even) {
                 right: 0;
             }
+            
             .timeline-item:nth-child(odd) {
                 left: 0;
             }
-            .timeline-item:nth-child(odd) .timeline-content::before{
-                        left: 100%;
-        right: unset;
-        transform: rotate(180deg);
+            
+            .timeline-item:nth-child(odd) .timeline-content::before {
+                left: 100%;
+                right: unset;
+                transform: rotate(180deg);
             }
-            /* .timeline-item:nth-child(odd) .timeline-dot::before{
-                        left: 101%;
-        right: unset;
-            } */
             
             .timeline-content::before {
                 right: auto;
@@ -746,37 +897,11 @@
             }
             
             .timeline-dot {
-                /* right: auto; */
                 left: 20px;
             }
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-                flex-direction: column;
-                display: none;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                top: 20px;
-                left: 20px;
-            }
             
             .page-hero-title {
                 font-size: 2.5rem;
@@ -788,6 +913,13 @@
             
             .section {
                 padding: 60px 0;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
             }
         }
 
@@ -801,6 +933,10 @@
             }
             
             .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
                 font-size: 2rem;
             }
         }
@@ -830,11 +966,15 @@
     </style>
 </head>
 <body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Header -->
-    <header class="header" id="header">
+    <!-- <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -847,7 +987,90 @@
                 </ul>
             </div>
         </div>
+    </header> -->
+
+    <div style="width: 100%; height: 250px">
+      <!-- <img src="./HeaderSmall.jpg" alt=""> -->
+      <img
+        src="./erasebg-transformed.png"
+        alt=""
+        style="width: 100%; height: 100%"
+      />
+    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./about.html" class="active">عن الشركة</a></li>
+            <li><a href="./products.html">المنتجات</a></li>
+            <li>
+              <div>
+                <a href="./services.html">الخدمات </a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                <li>
+                  <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news.html">الأخبار</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >جريدة مبتدأ</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >جريدة الوطن</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >جريدة الاستثمار</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >فيسبوك</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact.html">اتصل بنا</a></li>
+            <li><a href="./index-EN.html">EN</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
+
+    <!-- Tagline Strip -->
+    <section class="tagline" style="background-color: #263611;
+        padding: 14px 0;
+        text-align: center;">
+      <div class="container">
+        <h3 style="color: #d7b24a;
+        font-size: 1.9rem;
+        font-weight: 700;">طريق المبدعين ..... للنجاح و التميز</h3>
+      </div>
+    </section>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -1119,11 +1342,11 @@
                 <div class="footer-widget">
                     <h4>خدماتنا</h4>
                     <ul class="footer-links">
-                        <li><a href="#">تطوير التصميمات</a></li>
-                        <li><a href="#">ضمان الجودة</a></li>
-                        <li><a href="#">التسويق الدولي</a></li>
-                        <li><a href="#">المواصفات الدولية</a></li>
-                        <li><a href="#">الاستشارات الإدارية</a></li>
+                        <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                        <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                        <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                        <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                        <li><a href="./serviceConsulting.html">الاستشارات الإدارية</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
@@ -1134,39 +1357,22 @@
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p style="margin-top: 20px; color: #ccc;">
-                        info@cidco.tech<br>
-                        +966 12 345 6789<br>
-                        الرياض، المملكة العربية السعودية
-                    </p>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              شركة تطوير الصناعات الإبداعية ش.م.م ١٤ شارع فؤاد بدواني _ المنطقة
+              الثامنة مدينة نصر _ القاهرة
+            </p>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2023 CIDCO. جميع الحقوق محفوظة</p>
+                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-
             // Animation on scroll
             const animateElements = document.querySelectorAll('.animate');
             const observer = new IntersectionObserver((entries) => {
@@ -1182,7 +1388,26 @@
             animateElements.forEach(el => {
                 observer.observe(el);
             });
+
+            // Scroll to top functionality
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
+        <script src="./header.js"></script>
 </body>
 </html>

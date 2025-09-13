@@ -6,6 +6,7 @@
     <title>خدماتنا - CIDCO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="mainStyle.css">
     <style>
         :root {
             --color-primary: #6e3f20;
@@ -113,99 +114,9 @@
             transform: translateY(-3px);
         }
 
-        /* Header Styles */
-        .header {
-            background-color: var(--color-primary);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            padding: 10px 0;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--color-secondary);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--color-light);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links a {
-            color: var(--color-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-            font-size: 28px;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            right: 0;
-            background-color: var(--color-secondary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--color-light);
-        }
-
         /* Page Hero */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e3f20"/><path d="M0 0L100 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/><path d="M100 0L0 100" stroke="%23d7b24a" stroke-width="1" opacity="0.3"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -529,94 +440,9 @@
             transform: rotate(180deg);
         }
 
-        /* Footer */
-        .footer {
-            background-color: var(--color-dark);
-            color: #fff;
-            padding: 70px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-widget h4 {
-            color: var(--color-secondary);
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        .footer-widget h4::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background: var(--color-secondary);
-            bottom: 0;
-            right: 0;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-secondary);
-            padding-right: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #222;
-            color: var(--color-secondary);
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--color-secondary);
-            color: var(--color-primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            
             
             .process-steps {
                 flex-direction: column;
@@ -629,31 +455,6 @@
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-                flex-direction: column;
-                display: none;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                top: 20px;
-                left: 20px;
-            }
             
             .page-hero-title {
                 font-size: 2.5rem;
@@ -669,9 +470,6 @@
         }
 
         @media (max-width: 576px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
             
             .page-hero-title {
                 font-size: 2rem;
@@ -707,24 +505,88 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <div style="width: 100%; height: 250px">
+      <!-- <img src="./HeaderSmall.jpg" alt=""> -->
+      <img
+        src="./erasebg-transformed.png"
+        alt=""
+        style="width: 100%; height: 100%"
+      />
+    </div>
+  <!-- Header -->
     <header class="header" id="header">
-        <div class="container">
-            <div class="header-content">
-                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="./index.html">الرئيسية</a></li>
-                    <li><a href="./about.html">عن الشركة</a></li>
-                    <li><a href="./products.html">المنتجات</a></li>
-                    <li><a href="./services.html" class="active">الخدمات</a></li>
-                    <li><a href="./contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./about.html">عن الشركة</a></li>
+            <li><a href="./products.html">المنتجات</a></li>
+            <li>
+              <div>
+                <a href="./services.html" class="active">الخدمات </a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                <li>
+                  <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news.html">الأخبار</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >جريدة مبتدأ</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >جريدة الوطن</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >جريدة الاستثمار</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >فيسبوك</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact.html">اتصل بنا</a></li>
+            <li><a href="./index-EN.html">EN</a></li>
+          </ul>
         </div>
+      </div>
     </header>
+
+    <!-- Tagline Strip -->
+    <section class="tagline" style="background-color: #263611;
+        padding: 14px 0;
+        text-align: center;">
+      <div class="container">
+        <h3 style="color: #d7b24a;
+        font-size: 1.9rem;
+        font-weight: 700;">طريق المبدعين ..... للنجاح و التميز</h3>
+      </div>
+    </section>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -1007,21 +869,27 @@
                 <div class="footer-widget">
                     <h4>خدماتنا</h4>
                     <ul class="footer-links">
-                        <li><a href="#">تطوير التصميمات</a></li>
-                        <li><a href="#">ضمان الجودة</a></li>
-                        <li><a href="#">التسويق الدولي</a></li>
-                        <li><a href="#">المواصفات الدولية</a></li>
-                        <li><a href="#">الاستشارات الإدارية</a></li>
+                        <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                        <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                        <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                        <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                        <li><a href="./serviceConsulting.html">الاستشارات الإدارية</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
                     <h4>وسائل التواصل</h4>
-                    <div class="social-links">
+                    <div class="footer-social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              شركة تطوير الصناعات الإبداعية ش.م.م ١٤ شارع فؤاد بدواني _ المنطقة
+              الثامنة مدينة نصر _ القاهرة
+            </p>
                 </div>
             </div>
             <div class="copyright">
@@ -1032,24 +900,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-
             // Animation on scroll
             const animateElements = document.querySelectorAll('.animate');
             const observer = new IntersectionObserver((entries) => {
@@ -1088,5 +938,7 @@
             });
         });
     </script>
+        <script src="./header.js"></script>
+
 </body>
 </html>
