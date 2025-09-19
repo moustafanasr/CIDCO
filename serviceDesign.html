@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="mainStyle.css" />
+
     <style>
         :root {
             --color-primary: #6e3f20;
@@ -121,109 +123,6 @@
             background: var(--color-secondary);
             color: var(--color-primary);
             transform: translateY(-5px);
-        }
-
-        /* Header Styles */
-        .header {
-            background-color: rgba(110, 63, 32, 0.95);
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .header.scrolled {
-            padding: 15px 0;
-            background-color: rgba(110, 63, 32, 0.98);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--color-secondary);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo span {
-            color: var(--color-light);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--color-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            padding: 8px 0;
-            font-size: 28px;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            right: 0;
-            background-color: var(--color-secondary);
-            transition: var(--transition);
-            border-radius: 3px;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active {
-            color: var(--color-secondary);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--color-light);
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn:hover {
-            color: var(--color-secondary);
         }
 
         /* Page Hero */
@@ -684,89 +583,6 @@
             line-height: 1.8;
         }
 
-        /* Footer */
-        .footer {
-            background-color: var(--color-dark);
-            color: #fff;
-            padding: 70px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-widget h4 {
-            color: var(--color-secondary);
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        .footer-widget h4::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background: var(--color-secondary);
-            bottom: 0;
-            right: 0;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-secondary);
-            padding-right: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #222;
-            color: var(--color-secondary);
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--color-secondary);
-            color: var(--color-primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
         /* Responsive Styles */
         @media (max-width: 1200px) {
             .section-title {
@@ -814,37 +630,6 @@
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                background: var(--color-primary);
-                width: 280px;
-                height: calc(100vh - 80px);
-                flex-direction: column;
-                padding: 40px 20px;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                width: 100%;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
             .page-hero-title {
                 font-size: 2.5rem;
             }
@@ -959,24 +744,89 @@
     </style>
 </head>
 <body>
+    <div style="width: 100%; height: 250px">
+      <!-- <img src="./HeaderSmall.jpg" alt=""> -->
+      <img
+        src="./erasebg-transformed.png"
+        alt=""
+        style="width: 100%; height: 100%"
+      />
+    </div>
     <!-- Header -->
     <header class="header" id="header">
-        <div class="container">
-            <div class="header-content">
-                <!-- <a href="index.html" class="logo">CID<span>CO</span></a> -->
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="services.html">الخدمات</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./about.html">عن الشركة</a></li>
+            <li><a href="./products.html">المنتجات</a></li>
+            <li>
+              <div>
+                <a href="./services.html">الخدمات </a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                <li>
+                  <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news.html" class="active">الأخبار</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >جريدة مبتدأ</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >جريدة الوطن</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >جريدة الاستثمار</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >فيسبوك</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact.html">اتصل بنا</a></li>
+            <li><a href="./index-EN.html">EN</a></li>
+          </ul>
         </div>
+      </div>
     </header>
+
+    <!-- Tagline Strip -->
+    <section
+      class="tagline"
+      style="background-color: #263611; padding: 14px 0; text-align: center"
+    >
+      <div class="container">
+        <h3 style="color: #d7b24a; font-size: 1.9rem; font-weight: 700">
+          طريق المبدعين ..... للنجاح و التميز
+        </h3>
+      </div>
+    </section>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -1157,8 +1007,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+<!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1188,12 +1037,18 @@
                 </div>
                 <div class="footer-widget">
                     <h4>وسائل التواصل</h4>
-                    <div class="social-links">
+                    <div class="footer-social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              شركة تطوير الصناعات الإبداعية ش.م.م ١٤ شارع فؤاد بدواني _ المنطقة
+              الثامنة مدينة نصر _ القاهرة
+            </p>
                 </div>
             </div>
             <div class="copyright">
@@ -1201,27 +1056,8 @@
             </div>
         </div>
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-
             // Animation on scroll
             const animateElements = document.querySelectorAll('.animate');
             const observer = new IntersectionObserver((entries) => {
@@ -1239,5 +1075,7 @@
             });
         });
     </script>
+        <script src="./header.js"></script>
+
 </body>
 </html>

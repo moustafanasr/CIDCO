@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company News - CIDCO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mainStyleEnglish.css" />
+
+    <style>
+      :root {
+        --color-primary: #6e3f20;
+        --color-secondary: #d7b24a;
+        --color-accent: #263611;
+        --color-light: #efe6d5;
+        --color-dark: #1a1a1a;
+        --color-text: #333333;
+        --color-background: #f9f9f9;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s ease;
+        --border-radius: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cairo", "Tahoma", sans-serif;
+        color: var(--color-text);
+        line-height: 1.6;
+        background-color: var(--color-background);
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        color: var(--color-primary);
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background: var(--color-secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title.light {
+        color: var(--color-light);
+      }
+
+      .section-title.light::after {
+        background: var(--color-secondary);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .btn-primary {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        box-shadow: 0 4px 15px rgba(215, 178, 74, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--color-secondary);
+        border-color: var(--color-secondary);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--color-light);
+        border: 2px solid var(--color-secondary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        transform: translateY(-3px);
+      }
+
+      /* Page Hero */
+      .page-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        color: var(--color-light);
+        text-align: center;
+        position: relative;
+      }
+
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(110, 63, 32, 0.8) 0%,
+          rgba(215, 178, 74, 0.4) 100%
+        );
+        z-index: -1;
+      }
+
+      .page-hero-content {
+        width: 100%;
+      }
+
+      .page-hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .breadcrumb {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        animation: fadeInUp 1s ease 0.3s forwards;
+        opacity: 0;
+      }
+
+      .breadcrumb li {
+        margin: 0 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .breadcrumb li:not(:last-child)::after {
+        content: "/";
+        margin-right: 10px;
+        color: var(--color-secondary);
+      }
+
+      .breadcrumb a {
+        color: var(--color-light);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .breadcrumb a:hover {
+        color: var(--color-secondary);
+      }
+
+      /* News Section */
+      .news-section {
+        background-color: white;
+      }
+
+      .news-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .filter-btn {
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--color-primary);
+        color: var(--color-light);
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .news-card {
+        background: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .news-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .news-image {
+        height: 200px;
+        background: linear-gradient(45deg, #ddd, #eee);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 1.5rem;
+        font-weight: 700;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .news-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .news-card:hover .news-image img {
+        transform: scale(1.1);
+      }
+
+      .news-date {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        z-index: 2;
+      }
+
+      .news-content {
+        padding: 25px;
+      }
+
+      .news-source {
+        color: var(--color-secondary);
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .news-title {
+        font-size: 1.4rem;
+        color: var(--color-primary);
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .news-excerpt {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .news-link {
+        color: var(--color-secondary);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+      }
+
+      .news-link i {
+        margin-left: 8px;
+      }
+
+      .news-link:hover {
+        color: var(--color-primary);
+      }
+
+      /* Featured News */
+      .featured-news {
+        background-color: #f8f4ec;
+        padding: 80px 0;
+      }
+
+      .featured-news-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .featured-image {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 400px;
+      }
+
+      .featured-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .featured-content {
+        padding: 20px;
+      }
+
+      .featured-badge {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .featured-title {
+        font-size: 2rem;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+        line-height: 1.3;
+        direction: ltr;
+      }
+
+      .featured-text {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      /* Newsletter Section */
+      .newsletter-section {
+        background: linear-gradient(to right, var(--color-primary), #5a331a);
+        color: var(--color-light);
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .newsletter-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .newsletter-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        min-width: 250px;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 50px;
+        font-family: "Cairo", sans-serif;
+      }
+
+      .newsletter-btn {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .newsletter-btn:hover {
+        background: var(--color-light);
+        transform: translateY(-3px);
+      }
+
+      /* Scroll to top button */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 999;
+        box-shadow: var(--shadow);
+      }
+
+      .scroll-top.active {
+        opacity: 1;
+        visibility: visible;
+        direction: ltr;
+      }
+
+      .scroll-top:hover {
+        background: var(--color-primary);
+        color: var(--color-light);
+        transform: translateY(-5px);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .featured-news-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-hero-title {
+          font-size: 2.5rem;
+        }
+
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .newsletter-input {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .page-hero-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .featured-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .animate.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div style="width: 100%; height: 250px">
+      <img
+        src="./erasebg-transformed.png"
+        alt="CIDCO Logo"
+        style="width: 100%; height: 100%"
+      />
+    </div>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index-EN.html">Home</a></li>
+            <li><a href="./about-EN.html">About Us</a></li>
+            <li><a href="./products-EN.html">Products</a></li>
+            <li>
+              <div>
+                <a href="./services-EN.html">Services</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                <li>
+                  <a href="./serviceConsulting-EN.html">Management Consulting</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news-EN.html" class="active">News</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >Mobtada Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >El Watan Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >Al Estesmar Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >Facebook</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact-EN.html">Contact Us</a></li>
+            <li><a href="./news.html">AR</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tagline Strip -->
+    <section
+      class="tagline"
+      style="background-color: #263611; padding: 14px 0; text-align: center"
+    >
+      <div class="container">
+        <h3 style="color: #d7b24a; font-size: 1.9rem; font-weight: 700">
+          The Path of Creators..... to Success and Excellence
+        </h3>
+      </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <h1 class="page-hero-title">Company News</h1>
+          <ul class="breadcrumb">
+            <li><a href="index-EN.html">Home</a></li>
+            <li>Company News</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured News -->
+    <section class="featured-news">
+      <div class="container">
+        <div class="featured-news-container">
+          <div class="featured-image animate">
+            <img
+              src="./assest/img/CIDCONews.jpg"
+              alt="Signing agreement with Ministry of Industry"
+            />
+          </div>
+          <div class="featured-content animate">
+            <span class="featured-badge">Featured News</span>
+            <h2 class="featured-title">
+              Signing Cooperation Protocol Between Ministry of Industry and CIDCO to Develop Creative Industries
+            </h2>
+            <p class="featured-text">
+              Engineer Kamil Al-Wazir, Deputy Prime Minister for Industrial Development and Minister of Industry and Transport, witnessed the signing of a 3-year cooperation protocol between the Industrial Affairs Sector of the Ministry of Industry and Creative Industries Development Company (CIDCO). The protocol aims to enhance cooperation in marketing the outputs of traditional industry projects, developing products, and targeting the export of traditional industries to European markets.
+            </p>
+            <a
+              href="https://www.elwatannews.com/news/details/8102574"
+              class="btn btn-primary"
+              >Read More</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section news-section">
+      <div class="container">
+        <h2 class="section-title">Latest News</h2>
+
+        <div class="news-filters">
+          <button class="filter-btn active">All News</button>
+          <button class="filter-btn">Cooperation Agreements</button>
+          <button class="filter-btn">Events</button>
+          <button class="filter-btn">Achievements</button>
+        </div>
+
+        <div class="news-grid">
+          <!-- News 1 -->
+          <div class="news-card animate">
+            <div class="news-image">
+              <span class="news-date">July 16, 2025</span>
+              <img src="./assest/img/mobtada.jpg" alt="Ministry of Industry Agreement" />
+            </div>
+            <div class="news-content">
+              <span class="news-source">Mobtada Newspaper</span>
+              <h3 class="news-title">
+                Signing Cooperation Protocol to Develop Creative Industries Between Ministry of Industry and CIDCO
+              </h3>
+              <p class="news-excerpt">
+                Engineer Kamil Al-Wazir, Deputy Prime Minister for Industrial Development, witnessed the signing of a 3-year cooperation protocol between the Ministry of Industry and Creative Industries Development Company (CIDCO).
+              </p>
+              <a
+                href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                class="news-link"
+                >Read More <i class="fas fa-arrow-right"></i></a
+              >
+            </div>
+          </div>
+
+          <!-- News 2 -->
+          <div class="news-card animate">
+            <div class="news-image">
+              <span class="news-date">July 16, 2025</span>
+              <img
+                src="./assest/img/CIDCONews.jpg"
+                alt="Heritage Industries Agreement"
+              />
+            </div>
+            <div class="news-content">
+              <span class="news-source">El Watan Newspaper</span>
+              <h3 class="news-title">
+                Minister of Industry Witnesses Signing Agreement to Support Heritage Industries and Increase Global Exports
+              </h3>
+              <p class="news-excerpt">
+                Engineer Kamil Al-Wazir witnessed the signing of a cooperation protocol between the Ministry of Industry and CIDCO; aiming to enhance cooperation in marketing the outputs of traditional industry projects.
+              </p>
+              <a
+                href="https://www.elwatannews.com/news/details/8102574"
+                class="news-link"
+                >Read More <i class="fas fa-arrow-right"></i></a
+              >
+            </div>
+          </div>
+
+          <!-- News 3 -->
+          <div class="news-card animate">
+            <div class="news-image">
+              <span class="news-date">July 16, 2025</span>
+              <img src="assest/img/estsmar.jpg" alt="Industry Development Agreement" />
+            </div>
+            <div class="news-content">
+              <span class="news-source">Al Estesmar Newspaper</span>
+              <h3 class="news-title">
+                Cooperation Between Ministry of Industry and CIDCO to Develop and Market Creative Industries
+              </h3>
+              <p class="news-excerpt">
+                The protocol aims to enhance cooperation in marketing the outputs of traditional industry projects that are implemented by agreement between the two parties.
+              </p>
+              <a
+                href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                class="news-link"
+                >Read More <i class="fas fa-arrow-right"></i></a
+              >
+            </div>
+          </div>
+
+          <!-- News 4 -->
+          <div class="news-card animate">
+            <div class="news-image">
+              <span class="news-date">July 15, 2025</span>
+              <img src="./assest/img/facebooknews.jpg" alt="Quality Agreement" />
+            </div>
+            <div class="news-content">
+              <span class="news-source">Facebook</span>
+              <h3 class="news-title">
+                Strategic Cooperation Between "CIDCO" and "EGESCO" to Enhance Quality of Creative Industries
+              </h3>
+              <p class="news-excerpt">
+                Creative Industries Development Company (CIDCO) signed a strategic cooperation agreement with EGESCO International for Quality, aiming to integrate and unify efforts in the field of quality assurance for heritage products.
+              </p>
+              <a
+                href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                class="news-link"
+                >Read More <i class="fas fa-arrow-right"></i></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+          <p>
+            Be the first to know about our news and latest developments in the world of creative industries
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Your Email"
+              required
+            />
+            <button type="submit" class="newsletter-btn">Subscribe Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>About the Company</h4>
+                    <p>Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-EN.html">Home</a></li>
+                        <li><a href="about-EN.html">About Us</a></li>
+                        <li><a href="products-EN.html">Products</a></li>
+                        <li><a href="services-EN.html">Services</a></li>
+                        <li><a href="contact-EN.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                        <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                        <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                        <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                        <li><a href="./serviceConsulting-EN.html">Management Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              Creative Industries Development Company, 14 Fouad Badawany Street, Zone 8, Nasr City, Cairo
+            </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      // main.js - JavaScript for main page functionality only
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animation on scroll
+        const animateElements = document.querySelectorAll(".animate");
+        if (animateElements.length > 0) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("animated");
+                }
+              });
+            },
+            {
+              threshold: 0.1
+            }
+          );
+
+          animateElements.forEach((el) => {
+            observer.observe(el);
+          });
+        }
+
+        // News filter functionality (if exists on page)
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const newsCards = document.querySelectorAll(".news-card");
+
+        if (filterButtons.length > 0 && newsCards.length > 0) {
+          filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              // Remove active class from all buttons
+              filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+              // Add active class to clicked button
+              button.classList.add("active");
+
+              // Get filter value
+              const filterValue = button.textContent.trim();
+
+              // Filter news (this is a simplified version)
+              // In a real implementation, you would filter based on data attributes
+              newsCards.forEach((card) => {
+                if (filterValue === "All News") {
+                  card.style.display = "block";
+                  setTimeout(() => {
+                    card.classList.add("animated");
+                  }, 50);
+                } else {
+                  // Simple filter simulation
+                  const newsSource = card.querySelector(".news-source");
+                  if (
+                    newsSource &&
+                    (newsSource.textContent.includes(filterValue) ||
+                      Math.random() > 0.5)
+                  ) {
+                    card.style.display = "block";
+                    setTimeout(() => {
+                      card.classList.add("animated");
+                    }, 50);
+                  } else {
+                    card.style.display = "none";
+                  }
+                }
+              });
+            });
+          });
+        }
+
+        // Scroll to top functionality (if exists on page)
+        const scrollTopBtn = document.getElementById("scrollTop");
+
+        if (scrollTopBtn) {
+          window.addEventListener("scroll", function () {
+            if (window.scrollY > 500) {
+              scrollTopBtn.classList.add("active");
+            } else {
+              scrollTopBtn.classList.remove("active");
+            }
+          });
+
+          scrollTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+        }
+      });
+    </script>
+    <script src="./header.js"></script>
+  </body>
+</html>

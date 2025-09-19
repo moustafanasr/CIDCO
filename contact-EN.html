@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - CIDCO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mainStyleEnglish.css">
+
+    <style>
+      :root {
+        --color-primary: #6e3f20;
+        --color-secondary: #d7b24a;
+        --color-accent: #263611;
+        --color-light: #efe6d5;
+        --color-dark: #1a1a1a;
+        --color-text: #333333;
+        --color-background: #f9f9f9;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s ease;
+        --border-radius: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cairo", "Tahoma", sans-serif;
+        color: var(--color-text);
+        line-height: 1.6;
+        background-color: var(--color-background);
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        color: var(--color-primary);
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-weight: 700;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background: var(--color-secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title.light {
+        color: var(--color-light);
+      }
+
+      .section-title.light::after {
+        background: var(--color-secondary);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .btn-primary {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        box-shadow: 0 4px 15px rgba(215, 178, 74, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--color-secondary);
+        border-color: var(--color-secondary);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--color-light);
+        border: 2px solid var(--color-secondary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        transform: translateY(-3px);
+      }
+      /* Page Hero */
+      .page-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        color: var(--color-light);
+        text-align: center;
+      }
+
+      .page-hero-content {
+        width: 100%;
+      }
+
+      .page-hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+
+      .breadcrumb {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+      }
+
+      .breadcrumb li {
+        margin: 0 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .breadcrumb li:not(:last-child)::after {
+        content: "/";
+        margin-right: 10px;
+        color: var(--color-secondary);
+      }
+
+      .breadcrumb a {
+        color: var(--color-light);
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+      }
+
+      .breadcrumb a:hover {
+        color: var(--color-secondary);
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .contact-info {
+        color: var(--color-primary);
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        padding: 20px;
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .contact-detail:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .contact-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: var(--color-secondary);
+        width: 60px;
+        height: 60px;
+        background: rgba(110, 63, 32, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-text h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .contact-text p {
+        color: #666;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--color-primary);
+        color: var(--color-secondary);
+        transition: var(--transition);
+        font-size: 1.3rem;
+      }
+
+      .social-links a:hover {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        transform: translateY(-3px);
+      }
+
+      .contact-form {
+        background: white;
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        font-family: "Cairo", sans-serif;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--color-secondary);
+        box-shadow: 0 0 0 3px rgba(215, 178, 74, 0.2);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 0;
+        height: 450px;
+      }
+
+      .map-container {
+        height: 100%;
+        width: 100%;
+        background: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        background-color: #f8f4ec;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        direction: ltr;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .faq-question {
+        padding: 20px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-answer.active {
+        padding: 0 20px 20px;
+        max-height: 300px;
+      }
+
+      .faq-question i {
+        transition: var(--transition);
+      }
+
+      .faq-question.active i {
+        transform: rotate(180deg);
+      }
+
+      /* Team Section */
+      .team-section {
+        background: white;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .team-member {
+        text-align: center;
+        background: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .member-image {
+        height: 250px;
+        background: linear-gradient(
+          45deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 4rem;
+      }
+
+      .member-info {
+        padding: 25px;
+      }
+
+      .member-name {
+        font-size: 1.4rem;
+        color: var(--color-primary);
+        margin-bottom: 10px;
+      }
+
+      .member-role {
+        color: var(--color-secondary);
+        font-weight: 600;
+        margin-bottom: 15px;
+        direction: ltr;
+      }
+
+      .member-contact {
+        color: #666;
+        font-size: 0.9rem;
+        direction: ltr;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        
+
+        .page-hero-title {
+          font-size: 2.5rem;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        
+
+        .page-hero-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .contact-form {
+          padding: 25px;
+        }
+
+        .contact-detail {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .animate.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 100%; height: 250px">
+      <img
+        src="./erasebg-transformed.png"
+        alt="CIDCO Logo"
+        style="width: 100%; height: 100%"
+      />
+    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index-EN.html">Home</a></li>
+            <li><a href="./about-EN.html">About Us</a></li>
+            <li><a href="./products-EN.html">Products</a></li>
+            <li>
+              <div>
+                <a href="./services-EN.html">Services</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                <li>
+                  <a href="./serviceConsulting-EN.html">Management Consulting</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news-EN.html">News</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >Mobtada Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >El Watan Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >Al Estesmar Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >Facebook</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact-EN.html" class="active">Contact Us</a></li>
+            <li><a href="./contact.html">AR</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tagline Strip -->
+    <section class="tagline" style="background-color: #263611;
+        padding: 14px 0;
+        text-align: center;">
+      <div class="container">
+        <h3 style="color: #d7b24a;
+        font-size: 1.9rem;
+        font-weight: 700;">The Path of Creators..... to Success and Excellence</h3>
+      </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <h1 class="page-hero-title">Contact Us</h1>
+          <ul class="breadcrumb">
+            <li><a href="index-EN.html">Home</a></li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p
+          style="
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          We're here to help! Feel free to contact us for any inquiries or consultations about our services and products.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+
+            <div class="contact-detail animate">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Address</h4>
+                <p>
+                  Nasr City, Cairo, Egypt
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-detail animate">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <p>+20 1098080087</p>
+              </div>
+            </div>
+
+            <div class="contact-detail animate">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>info@cidco.tech</p>
+              </div>
+            </div>
+
+            <div class="contact-detail animate">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Working Hours</h4>
+                <p>
+                  Sunday - Thursday: 8 AM - 5 PM<br />Friday & Saturday: Closed
+                </p>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 40px">Follow Us</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" class="form-control" required>
+                  <option value="">Select Subject</option>
+                  <option value="service">Service Inquiry</option>
+                  <option value="product">Product Inquiry</option>
+                  <option value="partnership">Partnership & Cooperation</option>
+                  <option value="complaint">Complaint or Suggestion</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="map-container">
+        <i
+          class="fas fa-map-marked-alt"
+          style="font-size: 3rem; margin-right: 15px"
+        ></i>
+        Location Map - Nasr City, Cairo
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+      <div class="container">
+        <h2 class="section-title">Our Team</h2>
+        <p
+          style="
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Our team of professionals is always ready to help you and provide appropriate consultations for your needs.
+        </p>
+
+        <div class="team-grid">
+          <div class="team-member animate">
+            <div class="member-image">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Ahmed El Sayed</h3>
+              <p class="member-role">Customer Service Manager</p>
+              <p class="member-contact">
+                ahmed@cidco.tech<br />+20 109 808 0087
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member animate">
+            <div class="member-image">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Fatma Mohamed</h3>
+              <p class="member-role">Sales Executive</p>
+              <p class="member-contact">
+                fatima@cidco.tech<br />+20 109 808 0088
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member animate">
+            <div class="member-image">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Khaled Abdullah</h3>
+              <p class="member-role">Product Specialist</p>
+              <p class="member-contact">
+                khalid@cidco.tech<br />+20 109 808 0089
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member animate">
+            <div class="member-image">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Sara Ahmed</h3>
+              <p class="member-role">Project Coordinator</p>
+              <p class="member-contact">
+                sara@cidco.tech<br />+20 109 808 0090
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item animate">
+            <div class="faq-question">
+              What are the available contact methods? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                You can contact us by phone (+20 109 808 0087), email (info@cidco.tech), or by filling out the contact form on this page. You can also visit our main office in Nasr City during working hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item animate">
+            <div class="faq-question">
+              What are your working hours? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Official working hours are from Sunday to Thursday from 8 AM to 5 PM. We receive phone calls during this period, and you can send emails at any time and we will respond within 24 hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item animate">
+            <div class="faq-question">
+              How long does it take to respond to inquiries?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                We strive to respond to all inquiries as quickly as possible. Phone calls are usually answered immediately during working hours, emails are responded to within 24 hours, and contact forms are responded to within 48 hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item animate">
+            <div class="faq-question">
+              Do you offer free consultations? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, we provide an initial free consultation for all customers interested in our services. You can schedule a consultation by phone or by filling out the contact form and selecting "Service Inquiry".
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>About the Company</h4>
+                    <p>Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-EN.html">Home</a></li>
+                        <li><a href="about-EN.html">About Us</a></li>
+                        <li><a href="products-EN.html">Products</a></li>
+                        <li><a href="services-EN.html">Services</a></li>
+                        <li><a href="contact-EN.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                        <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                        <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                        <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                        <li><a href="./serviceConsulting-EN.html">Management Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              Creative Industries Development Company, 14 Fouad Badawany Street, Zone 8, Nasr City, Cairo
+            </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animation on scroll
+        const animateElements = document.querySelectorAll(".animate");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+              }
+            });
+          },
+          {
+            threshold: 0.1
+          }
+        );
+
+        animateElements.forEach((el) => {
+          observer.observe(el);
+        });
+
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach((question) => {
+          question.addEventListener("click", () => {
+            const answer = question.nextElementSibling;
+
+            // Close all other answers
+            document.querySelectorAll(".faq-answer").forEach((item) => {
+              if (item !== answer && item.classList.contains("active")) {
+                item.classList.remove("active");
+                item.previousElementSibling.classList.remove("active");
+              }
+            });
+
+            // Toggle current answer
+            question.classList.toggle("active");
+            answer.classList.toggle("active");
+          });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Here you would normally send the form data to a server
+          // For this example, we'll just show an alert
+
+          alert(
+            "Thank you for contacting us! We will respond to your message as soon as possible."
+          );
+          contactForm.reset();
+        });
+      });
+    </script>
+    <script src="./header.js"></script>
+  </body>
+</html>

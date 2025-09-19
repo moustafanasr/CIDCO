@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CIDCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mainStyleEnglish.css">
+
+    <style>
+        :root {
+            --color-primary: #6e3f20;
+            --color-secondary: #d7b24a;
+            --color-accent: #263611;
+            --color-light: #efe6d5;
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-background: #f9f9f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tahoma', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--color-secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title.light {
+            color: var(--color-light);
+        }
+
+        .section-title.light::after {
+            background: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(215, 178, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-light);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110, 63, 32, 0.8) 0%, rgba(215, 178, 74, 0.4) 100%);
+            z-index: -1;
+        }
+
+        .page-hero-content {
+            width: 100%;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-right: 10px;
+            color: var(--color-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* About Intro */
+        .about-intro {
+            background-color: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            color: var(--color-primary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        .intro-text p {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .intro-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .intro-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .intro-image img {
+            height: 100%;
+            width: 100%;
+            transition: var(--transition);
+        }
+        
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mission Vision */
+        .mission-vision {
+            background-color: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(215, 178, 74, 0.1);
+            z-index: 0;
+        }
+
+        .mission-vision::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+            z-index: 0;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--color-secondary);
+            transition: var(--transition);
+        }
+
+        .mv-card:hover::before {
+            height: 100%;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mv-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-title {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-description {
+            color: #666;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--color-light);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .value-card:hover::before {
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--color-primary);
+            color: var(--color-light);
+        }
+
+        .value-title {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-description {
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* History Section */
+        .history-section {
+            background-color: #f8f4ec;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--color-secondary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            align-self: flex-start;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: auto;
+            right: -10px;
+            border-right: none;
+            border-left: 10px solid white;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: #666;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(215, 178, 74, 0.3);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: auto;
+            right: -10px;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to top, var(--color-primary), transparent);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .team-member:hover::before {
+            height: 100%;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .member-image {
+            height: 250px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .member-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(to right, var(--color-primary), #5a331a);
+            color: var(--color-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50 L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0 L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+        }
+
+        .stat-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-desc {
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, var(--color-accent), #1e2b0c);
+            color: var(--color-light);
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><circle cx="50" cy="50" r="40" stroke="%23d7b24a" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
+            background-size: 80px 80px;
+            animation: rotate 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            margin-bottom: 35px;
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .intro-content, .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 30px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::before {
+                left: auto;
+                right: -10px;
+                border-right: none;
+                border-left: 10px solid white;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .values-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div style="width: 100%; height: 250px">
+      <img
+        src="./erasebg-transformed.png"
+        alt="CIDCO Logo"
+        style="width: 100%; height: 100%"
+      />
+    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="./index-EN.html">Home</a></li>
+            <li><a href="./about-EN.html" class="active">About Us</a></li>
+            <li><a href="./products-EN.html">Products</a></li>
+            <li>
+              <div>
+                <a href="./services-EN.html">Services</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                <li>
+                  <a href="./serviceConsulting-EN.html">Management Consulting</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <a href="./news-EN.html">News</a>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
+                    >Mobtada Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.elwatannews.com/news/details/8102574"
+                    >El Watan Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
+                    >Al Estesmar Newspaper</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
+                    >Facebook</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="./contact-EN.html">Contact Us</a></li>
+            <li><a href="./about.html">AR</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tagline Strip -->
+    <section class="tagline" style="background-color: #263611;
+        padding: 14px 0;
+        text-align: center;">
+      <div class="container">
+        <h3 style="color: #d7b24a;
+        font-size: 1.9rem;
+        font-weight: 700;">The Path of Creators..... to Success and Excellence</h3>
+      </div>
+    </section>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">About Our Company</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index-EN.html">Home</a></li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Intro -->
+    <section class="section about-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>Who We Are</h2>
+                    <p>Creative Industries Development Company (CIDCO) is a leading company in supporting and developing creative industries in Saudi Arabia and the region. The company was established with an ambitious vision to enhance the position of creative industries locally and internationally.</p>
+                    <p>We believe that creativity is the main driver of the modern economy, and we strive to create a supportive environment for creators in various fields by providing comprehensive and integrated solutions that meet their needs and aspirations.</p>
+                    <p>Thanks to our team of experts and specialists, we provide consulting and development services that help artisans and small and medium enterprises grow and compete in local and international markets.</p>
+                    <a href="contact-EN.html" class="btn btn-primary">Contact Us</a>
+                </div>
+                <div class="intro-image animate">
+                    <img src="./WhatsApp Image 2025-08-17 at 13.24.22_5db53c43.jpg" alt="Creative Industries Development Company">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision -->
+    <section class="section mission-vision">
+        <div class="container">
+            <h2 class="section-title">Our Vision & Mission</h2>
+            <div class="mv-grid">
+                <div class="mv-card animate">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mv-title">Our Vision</h3>
+                    <p class="mv-description">To be the leading company in developing creative industries locally and regionally, and to contribute to transforming Saudi Arabia into a regional center for distinguished creative industries.</p>
+                </div>
+                <div class="mv-card animate">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mv-title">Our Mission</h3>
+                    <p class="mv-description">Empowering creators and small and medium enterprises in the field of creative industries by providing integrated solutions that include development, quality, marketing, and access to global markets, while preserving cultural identity and authenticity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">Quality</h3>
+                    <p class="value-description">We are committed to the highest standards of quality in all our services and products, and we strive for excellence in everything we offer.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Creativity</h3>
+                    <p class="value-description">We encourage creative thinking and adopt innovative ideas that contribute to the development of creative industries.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Partnership</h3>
+                    <p class="value-description">We believe in the power of partnership and cooperation with our clients and partners to achieve mutual success.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Credibility</h3>
+                    <p class="value-description">We are committed to transparency and credibility in all our dealings, and we maintain the trust of our clients and partners.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="value-title">Sustainable Development</h3>
+                    <p class="value-description">We contribute to achieving sustainable development by supporting local industries and preserving cultural heritage.</p>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Customer Focus</h3>
+                    <p class="value-description">We put our customers at the heart of our concerns, and we strive to meet their needs and exceed their expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section history-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Establishment</h3>
+                        <p class="timeline-desc">Establishment of the company with an ambitious vision to support and develop creative industries in the Kingdom.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3 class="timeline-title">First Expansion</h3>
+                        <p class="timeline-desc">Expanding the scope of services to include multiple areas of creative industries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">Reaching International Markets</h3>
+                        <p class="timeline-desc">Starting export to international markets and building a global network of relationships.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">Awards & Recognition</h3>
+                        <p class="timeline-desc">The company received several local and regional awards for excellence in the field of creative industries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">Leadership & Innovation</h3>
+                        <p class="timeline-desc">Developing integrated digital platforms to support creators and reach new customers around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate">
+                    <div class="stat-number">150+</div>
+                    <h3 class="stat-title">Satisfied Clients</h3>
+                    <p class="stat-desc">More than 150 satisfied clients with our services</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">8</div>
+                    <h3 class="stat-title">Years of Experience</h3>
+                    <p class="stat-desc">Extensive experience in the field of creative industries</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">12</div>
+                    <h3 class="stat-title">Local & International Awards</h3>
+                    <p class="stat-desc">We have won 12 awards for excellence and creativity</p>
+                </div>
+                <div class="stat-item animate">
+                    <div class="stat-number">95%</div>
+                    <h3 class="stat-title">Clients Recommend Us</h3>
+                    <p class="stat-desc">95% of our clients recommend our services to others</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="container">
+            <h2 class="section-title">Leadership Team</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Our team of experts and specialists who lead the company towards achieving its vision and mission.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Dr. Hany Barakat</h3>
+                        <p class="member-role">Chief Executive Officer</p>
+                        <p class="member-desc">Over 15 years of experience in leading startups in the creative industries field.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Fatma Mohamed</h3>
+                        <p class="member-role">Development Manager</p>
+                        <p class="member-desc">Specialized in developing creative products and services with over 12 years of experience.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Khaled Abdullah</h3>
+                        <p class="member-role">Marketing Director</p>
+                        <p class="member-desc">Expert in international marketing for creative industries with experience spanning 10 years.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Sara Ahmed</h3>
+                        <p class="member-role">Quality Manager</p>
+                        <p class="member-desc">Specialized in quality assurance and international standard specifications for creative industries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Join Our Journey</h2>
+                <p class="cta-description">Be part of our success story and benefit from our integrated services to develop your business and achieve your goals.</p>
+                <a href="contact-EN.html" class="btn btn-primary">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>About the Company</h4>
+                    <p>Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-EN.html">Home</a></li>
+                        <li><a href="about-EN.html">About Us</a></li>
+                        <li><a href="products-EN.html">Products</a></li>
+                        <li><a href="services-EN.html">Services</a></li>
+                        <li><a href="contact-EN.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                        <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                        <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                        <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                        <li><a href="./serviceConsulting-EN.html">Management Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #ccc">
+              info@cidco.tech<br />
+              +20 12 345 6789<br />
+              Creative Industries Development Company, 14 Fouad Badawany Street, Zone 8, Nasr City, Cairo
+            </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CIDCO. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Scroll to top functionality
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+        <script src="./header.js"></script>
+</body>
+</html>

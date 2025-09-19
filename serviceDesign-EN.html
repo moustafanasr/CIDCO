@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المواصفات الدولية - CIDCO</title>
+    <title>Design Development - CIDCO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <link rel="stylesheet" href="mainStyle.css" />
+    <link rel="stylesheet" href="./mainStyleEnglish.css" />
+
     <style>
         :root {
             --color-primary: #6e3f20;
@@ -17,12 +18,13 @@
             --color-dark: #1a1a1a;
             --color-text: #333333;
             --color-background: #f9f9f9;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s ease;
+            --border-radius: 16px;
             --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #8b5a3c 100%);
             --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, #e5c870 100%);
+            --gradient-design: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
         }
 
         * {
@@ -34,7 +36,7 @@
         body {
             font-family: 'Cairo', 'Tahoma', sans-serif;
             color: var(--color-text);
-            line-height: 1.6;
+            line-height: 1.7;
             background-color: var(--color-background);
             overflow-x: hidden;
         }
@@ -53,7 +55,7 @@
         .section-title {
             text-align: center;
             color: var(--color-primary);
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 60px;
             font-weight: 800;
             position: relative;
@@ -62,12 +64,12 @@
         .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
+            width: 120px;
             height: 4px;
             background: var(--gradient-secondary);
             bottom: -20px;
-            right: 50%;
-            transform: translateX(50%);
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 2px;
         }
 
@@ -83,7 +85,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 36px;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
@@ -92,7 +94,7 @@
             border: 2px solid transparent;
             cursor: pointer;
             text-align: center;
-            gap: 10px;
+            gap: 12px;
             position: relative;
             overflow: hidden;
         }
@@ -100,7 +102,7 @@
         .btn-primary {
             background: var(--gradient-secondary);
             color: var(--color-primary);
-            box-shadow: 0 4px 15px rgba(215, 178, 74, 0.4);
+            box-shadow: 0 6px 20px rgba(215, 178, 74, 0.4);
         }
 
         .btn-primary:hover {
@@ -125,7 +127,7 @@
 
         /* Page Hero */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -142,10 +144,10 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
             left: 0;
-            background: var(--gradient-primary);
+            bottom: 0;
+            right: 0;
+            background: var(--gradient-design);
             opacity: 0.4;
             z-index: 0;
         }
@@ -157,7 +159,7 @@
         }
 
         .page-hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
             margin-bottom: 25px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -170,14 +172,14 @@
         }
 
         .breadcrumb li {
-            margin: 0 12px;
+            margin: 0 15px;
             display: flex;
             align-items: center;
         }
 
         .breadcrumb li:not(:last-child)::after {
             content: '/';
-            margin-left: 12px;
+            margin-right: 15px;
             color: var(--color-secondary);
             font-weight: bold;
         }
@@ -209,7 +211,7 @@
             opacity: 0.05;
             border-radius: 50%;
             top: -150px;
-            left: -150px;
+            right: -150px;
             z-index: 0;
         }
 
@@ -218,11 +220,11 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: var(--gradient-primary);
+            background: var(--gradient-design);
             opacity: 0.05;
             border-radius: 50%;
             bottom: -200px;
-            right: -200px;
+            left: -200px;
             z-index: 0;
         }
 
@@ -237,7 +239,7 @@
 
         .service-text h2 {
             color: var(--color-primary);
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 30px;
             font-weight: 800;
         }
@@ -245,7 +247,7 @@
         .service-text p {
             color: var(--color-text);
             font-size: 1.2rem;
-            line-height: 1.8;
+            line-height: 1.9;
             margin-bottom: 25px;
         }
 
@@ -264,7 +266,7 @@
 
         .service-features li:hover {
             background-color: rgba(215, 178, 74, 0.05);
-            padding-right: 15px;
+            padding-left: 15px;
         }
 
         .service-features li:last-child {
@@ -273,7 +275,7 @@
 
         .service-features li i {
             color: var(--color-secondary);
-            margin-left: 18px;
+            margin-right: 18px;
             font-size: 1.3rem;
             background: rgba(110, 63, 32, 0.1);
             width: 40px;
@@ -311,171 +313,22 @@
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
         }
 
-        /* Standards Section */
-        .standards-section {
-            background-color: #f8f4ec;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .standards-section::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 20px;
-            top: 0;
-            right: 0;
-            background: var(--gradient-primary);
-            opacity: 0.1;
-        }
-
-        .standards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-        }
-
-        .standard-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .standard-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .standard-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .standard-body {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .standard-body p {
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .standard-body ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .standard-body li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-
-        .standard-body li:last-child {
-            border-bottom: none;
-        }
-
-        .standard-body li i {
-            color: var(--color-secondary);
-            margin-left: 15px;
-            font-size: 1.2rem;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            background: white;
-            position: relative;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-        }
-
-        .benefit-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border-top: 4px solid var(--color-secondary);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-secondary);
-            bottom: 0;
-            right: 0;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            color: var(--color-secondary);
-            margin-bottom: 25px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: rgba(110, 63, 32, 0.1);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover .benefit-icon {
-            transform: rotateY(180deg);
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .benefit-title {
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .benefit-description {
-            color: #666;
-            line-height: 1.7;
-        }
-
         /* Process Section */
         .process-section {
             background-color: #f8f4ec;
             position: relative;
             overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            top: 0;
+            left: 0;
+            background: var(--gradient-design);
+            opacity: 0.1;
         }
 
         .process-steps {
@@ -489,8 +342,8 @@
             content: '';
             position: absolute;
             top: 45px;
-            right: 0;
             left: 0;
+            right: 0;
             height: 3px;
             background: var(--gradient-secondary);
             z-index: 1;
@@ -538,9 +391,159 @@
             line-height: 1.7;
         }
 
+        /* Benefits Section */
+        .benefits-section {
+            background: white;
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--color-secondary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(110, 63, 32, 0.1);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: rotateY(180deg);
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .benefit-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            background: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .portfolio-description {
+            color: var(--color-secondary);
+        }
+
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--color-accent) 0%, #2e4215 100%);
+            background: linear-gradient(135deg, var(--color-accent) 0%, #1e2b0c 100%);
             color: var(--color-light);
             text-align: center;
             padding: 100px 0;
@@ -554,7 +557,7 @@
             width: 100%;
             height: 100%;
             top: 0;
-            right: 0;
+            left: 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
             background-size: 50px 50px;
             opacity: 0.3;
@@ -592,6 +595,9 @@
         }
 
         @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             
             .service-content {
                 grid-template-columns: 1fr;
@@ -606,8 +612,8 @@
                 display: none;
             }
             
-            .standards-grid {
-                grid-template-columns: 1fr;
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .section {
@@ -631,9 +637,18 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
-
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
             .cta-title {
                 font-size: 2.5rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -655,7 +670,7 @@
             }
             
             .btn {
-                padding: 14px 30px;
+                padding: 16px 32px;
             }
             
             .breadcrumb {
@@ -745,57 +760,57 @@
             <i class="fas fa-bars"></i>
           </button>
           <ul class="nav-links">
-            <li><a href="./index.html">الرئيسية</a></li>
-            <li><a href="./about.html">عن الشركة</a></li>
-            <li><a href="./products.html">المنتجات</a></li>
+            <li><a href="./index-EN.html">Home</a></li>
+            <li><a href="./about-EN.html">About</a></li>
+            <li><a href="./products-EN.html">Products</a></li>
             <li>
               <div>
-                <a href="./services.html">الخدمات </a>
+                <a href="./services-EN.html" class="active">Services</a>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
               </div>
               <ul class="dropdown-menu">
-                <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
-                <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
-                <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
-                <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
+                <li><a href="./serviceDesign-EN.html">Design Development</a></li>
+                <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
+                <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
+                <li><a href="./serviceStandards-EN.html">International Standards</a></li>
                 <li>
-                  <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
+                  <a href="./serviceConsulting-EN.html">Management Consulting</a>
                 </li>
               </ul>
             </li>
             <li>
               <div>
-                <a href="./news.html" class="active">الأخبار</a>
+                <a href="./news-EN.html">News</a>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
               </div>
               <ul class="dropdown-menu">
                 <li>
                   <a
                     href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
-                    >جريدة مبتدأ</a
+                    >Mobtada Newspaper</a
                   >
                 </li>
                 <li>
                   <a href="https://www.elwatannews.com/news/details/8102574"
-                    >جريدة الوطن</a
+                    >El Watan Newspaper</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
-                    >جريدة الاستثمار</a
+                    >Investment Newspaper</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
-                    >فيسبوك</a
+                    >Facebook</a
                   >
                 </li>
               </ul>
             </li>
-            <li><a href="./contact.html">اتصل بنا</a></li>
-            <li><a href="./index-EN.html">EN</a></li>
+            <li><a href="./contact-EN.html">Contact Us</a></li>
+            <li><a href="./serviceDesign.html">AR</a></li>
           </ul>
         </div>
       </div>
@@ -808,7 +823,7 @@
     >
       <div class="container">
         <h3 style="color: #d7b24a; font-size: 1.9rem; font-weight: 700">
-          طريق المبدعين ..... للنجاح و التميز
+          The Path of Creators..... to Success and Excellence
         </h3>
       </div>
     </section>
@@ -817,11 +832,11 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-content">
-                <h1 class="page-hero-title animate__animated animate__fadeInDown">المواصفات الدولية</h1>
+                <h1 class="page-hero-title animate__animated animate__fadeInDown">Design Development</h1>
                 <ul class="breadcrumb">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="services.html">الخدمات</a></li>
-                    <li>المواصفات الدولية</li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li>Design Development</li>
                 </ul>
             </div>
         </div>
@@ -832,149 +847,25 @@
         <div class="container">
             <div class="service-content">
                 <div class="service-text">
-                    <h2>خدمة المواصفات الدولية</h2>
-                    <p>نقدم في CIDCO خدمات استشارية متكاملة لمساعدة الشركات والمصانع على الالتزام بالمواصفات والمعايير الدولية. نضمن لك التوافق مع متطلبات الجودة العالمية وتمكين منتجاتك من المنافسة في الأسواق الدولية.</p>
-                    <p>باستخدام خبرائنا المعتمدين دوليًا، نساعدك في الحصول على الشهادات الدولية المعترف بها مثل ISO، CE، FDA، وغيرها من الشهادات التي تفتح أمامك أسواق العالم.</p>
+                    <h2>Design Development Service</h2>
+                    <p>At CIDCO, we provide integrated design development services that help you transform your ideas into tangible and attractive products. We work on studying market requirements and developing innovative designs that meet customer needs and keep up with the latest global trends.</p>
+                    <p>Using the latest technologies and innovative design methods, we ensure you get unique products that combine authenticity and modernity, characterized by high quality and global marketability.</p>
                     
-                    <h3>مميزات الخدمة</h3>
+                    <h3>Service Features</h3>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> استشارات متخصصة في المواصفات الدولية</li>
-                        <li><i class="fas fa-check"></i> إعداد الوثائق والمستندات المطلوبة</li>
-                        <li><i class="fas fa-check"></i> تدريب الفريق على معايير الجودة العالمية</li>
-                        <li><i class="fas fa-check"></i> متابعة عملية الحصول على الشهادات</li>
-                        <li><i class="fas fa-check"></i> مراجعة وتطوير الأنظمة الحالية</li>
-                        <li><i class="fas fa-check"></i> ضمان الاستمرارية في الالتزام بالمعايير</li>
+                        <li><i class="fas fa-check"></i> Innovative and attractive product design</li>
+                        <li><i class="fas fa-check"></i> In-depth study of market trends</li>
+                        <li><i class="fas fa-check"></i> Development of integrated visual identity</li>
+                        <li><i class="fas fa-check"></i> Design of exceptional user experience</li>
+                        <li><i class="fas fa-check"></i> Use of the latest design technologies</li>
+                        <li><i class="fas fa-check"></i> Consideration of functional and aesthetic aspects</li>
                     </ul>
                     
-                    <a href="contact.html" class="btn btn-primary pulse">اطلب الخدمة الآن <i class="fas fa-arrow-left"></i></a>
+                    <a href="contact.html" class="btn btn-primary pulse">Request Service Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-image animate floating">
-                    <i class="fas fa-certificate"></i>
-                    <span>الشهادات الدولية</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Standards Section -->
-    <section class="section standards-section">
-        <div class="container">
-            <h2 class="section-title">أهم المعايير والمواصفات التي نعمل عليها</h2>
-            <div class="standards-grid">
-                <div class="standard-card animate">
-                    <div class="standard-header">
-                        <h3>ISO 9001</h3>
-                    </div>
-                    <div class="standard-body">
-                        <p>نظام إدارة الجودة الذي يضمن تلبية متطلبات العملاء وتحسين الأداء بشكل مستمر.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> تحسين كفاءة العمليات</li>
-                            <li><i class="fas fa-check"></i> زيادة رضا العملاء</li>
-                            <li><i class="fas fa-check"></i> تحسين السمعة التنظيمية</li>
-                            <li><i class="fas fa-check"></i> توسيع فرص السوق</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="standard-card animate">
-                    <div class="standard-header">
-                        <h3>ISO 14001</h3>
-                    </div>
-                    <div class="standard-body">
-                        <p>نظام الإدارة البيئية الذي يساعد organizations على تقليل تأثيرها البيئي.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> الامتثال للوائح البيئية</li>
-                            <li><i class="fas fa-check"></i> تحسين الأداء البيئي</li>
-                            <li><i class="fas fa-check"></i> تقليل النفايات والاستهلاك</li>
-                            <li><i class="fas fa-check"></i> تحسين الصورة العامة</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="standard-card animate">
-                    <div class="standard-header">
-                        <h3>شهادة CE</h3>
-                    </div>
-                    <div class="standard-body">
-                        <p>علامة conformity الإلزامية للعديد من المنتجات المتداولة في المنطقة الاقتصادية الأوروبية.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> الوصول إلى السوق الأوروبية</li>
-                            <li><i class="fas fa-check"></i> إثبات سلامة المنتج</li>
-                            <li><i class="fas fa-check"></i> زيادة ثقة العملاء</li>
-                            <li><i class="fas fa-check"></i> تعزيز المصداقية</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="standard-card animate">
-                    <div class="standard-header">
-                        <h3>مواصفات FDA</h3>
-                    </div>
-                    <div class="standard-body">
-                        <p>متطلبات هيئة الغذاء والدواء الأمريكية للسلع الغذائية والدوائية والأجهزة الطبية.</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> دخول السوق الأمريكية</li>
-                            <li><i class="fas fa-check"></i> ضمان جودة وسلامة المنتج</li>
-                            <li><i class="fas fa-check"></i> تعزيز الثقة العالمية</li>
-                            <li><i class="fas fa-check"></i> تحسين المبيعات الدولية</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="section benefits-section">
-        <div class="container">
-            <h2 class="section-title">فوائد الالتزام بالمواصفات الدولية</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="benefit-title">فتح الأسواق العالمية</h3>
-                    <p class="benefit-description">المواصفات الدولية تمكن منتجاتك من دخول أسواق جديدة حول العالم.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3 class="benefit-title">تحسين الجودة</h3>
-                    <p class="benefit-description">الالتزام بالمعايير الدولية يضمن تحسين جودة المنتجات والخدمات.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="benefit-title">زيادة المصداقية</h3>
-                    <p class="benefit-description">الشهادات الدولية تعزز ثقة العملاء والشركاء في منتجاتك.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="benefit-title">تعزيز التنافسية</h3>
-                    <p class="benefit-description">تمنحك ميزة تنافسية في السوق المحلي والدولي.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="benefit-title">تحسين الربحية</h3>
-                    <p class="benefit-description">المنتجات المطابقة للمواصفات الدولية تحقق عوائد مالية أفضل.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="benefit-title">رضا العملاء</h3>
-                    <p class="benefit-description">المنتجات عالية الجودة تؤدي إلى زيادة رضا وولاء العملاء.</p>
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>Creativity and Design</span>
                 </div>
             </div>
         </div>
@@ -983,30 +874,124 @@
     <!-- Process Section -->
     <section class="section process-section">
         <div class="container">
-            <h2 class="section-title">خطوات الحصول على الشهادات الدولية</h2>
+            <h2 class="section-title">How We Provide the Service</h2>
             <div class="process-steps">
                 <div class="process-step animate">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">التقييم الأولي</h3>
-                    <p class="step-description">نقوم بتقييم الوضع الحالي وتحديد الفجوات بينه وبين متطلبات المواصفة المستهدفة.</p>
+                    <h3 class="step-title">Initial Consultation</h3>
+                    <p class="step-description">We start by understanding your needs and goals through in-depth consultation sessions.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">التخطيط والتحضير</h3>
-                    <p class="step-description">نضع خطة عمل مفصلة ونقوم بإعداد الوثائق والمستندات المطلوبة.</p>
+                    <h3 class="step-title">Market Study</h3>
+                    <p class="step-description">We conduct an in-depth study of the market and competitors to ensure your designs stand out.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">التنفيذ والتدريب</h3>
-                    <p class="step-description">ننفذ الخطة وندرب فريقك على متطلبات المواصفة وآليات التطبيق.</p>
+                    <h3 class="step-title">Initial Design</h3>
+                    <p class="step-description">We develop initial designs and present them to you for feedback.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">المراجعة والشهادة</h3>
-                    <p class="step-description">نراجع النظام معك ونساعدك في الحصول على الشهادة من الجهة المانحة.</p>
+                    <h3 class="step-title">Final Implementation</h3>
+                    <p class="step-description">We implement the final design and deliver the product with all details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- <section class="section portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Our Design Works</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Visual Identity Design</h3>
+                        <p class="portfolio-description">Complete identity for a new brand</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Mobile App Design</h3>
+                        <p class="portfolio-description">Attractive and user-friendly interfaces</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item animate">
+                    <div class="portfolio-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">E-commerce Design</h3>
+                        <p class="portfolio-description">Unique and distinctive shopping experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2 class="section-title">Benefits of Design Development Service</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="benefit-title">Market Distinction</h3>
+                    <p class="benefit-description">Innovative designs that make your products stand out in the market and attract customer attention.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">Customer Satisfaction</h3>
+                    <p class="benefit-description">Designs focused on user experience that meet customer expectations.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">Increased Sales</h3>
+                    <p class="benefit-description">Attractive designs that increase product value and improve sales rates.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="benefit-title">High Quality</h3>
+                    <p class="benefit-description">Use of high-quality materials and techniques that ensure product durability and beauty.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="benefit-title">Global Design</h3>
+                    <p class="benefit-description">Designs that meet international standards and suit different cultures and markets.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">Continuous Innovation</h3>
+                    <p class="benefit-description">Keeping up with the latest design trends and continuously providing innovative solutions.</p>
                 </div>
             </div>
         </div>
@@ -1016,43 +1001,42 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">مستعد للحصول على الشهادات الدولية؟</h2>
-                <p class="cta-description">تواصل معنا اليوم لتحصل على استشارة مجانية ومناقشة كيف يمكننا مساعدتك في الحصول على الشهادات الدولية المعتمدة.</p>
-                <a href="contact.html" class="btn btn-primary pulse">اطلب استشارة مجانية <i class="fas fa-arrow-left"></i></a>
+                <h2 class="cta-title">Ready to develop your product designs?</h2>
+                <p class="cta-description">Contact us today for a free consultation and to discuss how we can help you develop innovative designs for your products.</p>
+                <a href="contact.html" class="btn btn-primary pulse">Request Free Consultation <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+<!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-widget">
-                    <h4>عن الشركة</h4>
-                    <p>شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.</p>
+                    <h4>About the Company</h4>
+                    <p>Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.</p>
                 </div>
                 <div class="footer-widget">
-                    <h4>روابط سريعة</h4>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="about.html">عن الشركة</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="services.html">الخدمات</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
-                    <h4>خدماتنا</h4>
+                    <h4>Our Services</h4>
                     <ul class="footer-links">
-                        <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
-                        <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
-                        <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
-                        <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
-                        <li><a href="./serviceConsulting.html">الاستشارات الإدارية</a></li>
+                        <li><a href="./serviceDesign.html">Design Development</a></li>
+                        <li><a href="./serviceQuality.html">Quality Assurance</a></li>
+                        <li><a href="./serviceMarketing.html">International Marketing</a></li>
+                        <li><a href="./serviceStandards.html">International Standards</a></li>
+                        <li><a href="./serviceConsulting.html">Management Consulting</a></li>
                     </ul>
                 </div>
                 <div class="footer-widget">
-                    <h4>وسائل التواصل</h4>
+                    <h4>Contact Methods</h4>
                     <div class="footer-social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1062,17 +1046,15 @@
                     <p style="margin-top: 20px; color: #ccc">
               info@cidco.tech<br />
               +20 12 345 6789<br />
-              شركة تطوير الصناعات الإبداعية ش.م.م ١٤ شارع فؤاد بدواني _ المنطقة
-              الثامنة مدينة نصر _ القاهرة
+              Creative Industries Development Company S.A.E. 14 Fouad Badawi Street _ Zone 8 Nasr City _ Cairo
             </p>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
+                <p>© 2025 CIDCO. All rights reserved</p>
             </div>
         </div>
     </footer>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Animation on scroll
@@ -1090,12 +1072,9 @@
             animateElements.forEach(el => {
                 observer.observe(el);
             });
-
-            // Add animation to hero text
-            const heroTitle = document.querySelector('.page-hero-title');
-            heroTitle.classList.add('animate__animated', 'animate__fadeInDown');
         });
     </script>
         <script src="./header.js"></script>
+
 </body>
 </html>
