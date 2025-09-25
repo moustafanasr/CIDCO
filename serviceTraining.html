@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Development - CIDCO</title>
+    <title>التدريب والتأهيل - CIDCO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="./mainStyleEnglish.css" />
-
+    <link rel="stylesheet" href="mainStyle.css" />
     <style>
         :root {
             --color-primary: #6e3f20;
@@ -68,8 +67,8 @@
             height: 4px;
             background: var(--gradient-secondary);
             bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 50%;
+            transform: translateX(50%);
             border-radius: 2px;
         }
 
@@ -127,7 +126,7 @@
 
         /* Page Hero */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1700&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -144,9 +143,9 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            bottom: 0;
             right: 0;
+            bottom: 0;
+            left: 0;
             background: var(--gradient-design);
             opacity: 0.4;
             z-index: 0;
@@ -179,7 +178,7 @@
 
         .breadcrumb li:not(:last-child)::after {
             content: '/';
-            margin-right: 15px;
+            margin-left: 15px;
             color: var(--color-secondary);
             font-weight: bold;
         }
@@ -211,7 +210,7 @@
             opacity: 0.05;
             border-radius: 50%;
             top: -150px;
-            right: -150px;
+            left: -150px;
             z-index: 0;
         }
 
@@ -224,7 +223,7 @@
             opacity: 0.05;
             border-radius: 50%;
             bottom: -200px;
-            left: -200px;
+            right: -200px;
             z-index: 0;
         }
 
@@ -266,7 +265,7 @@
 
         .service-features li:hover {
             background-color: rgba(215, 178, 74, 0.05);
-            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .service-features li:last-child {
@@ -275,7 +274,7 @@
 
         .service-features li i {
             color: var(--color-secondary);
-            margin-right: 18px;
+            margin-left: 18px;
             font-size: 1.3rem;
             background: rgba(110, 63, 32, 0.1);
             width: 40px;
@@ -313,9 +312,93 @@
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
         }
 
+        /* Training Programs */
+        .programs-section {
+            background-color: #f8f4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .program-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .program-body {
+            padding: 25px;
+        }
+
+        .program-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .program-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .program-features li:last-child {
+            border-bottom: none;
+        }
+
+        .program-features li i {
+            color: var(--color-secondary);
+            margin-left: 10px;
+        }
+
+        .program-duration {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .program-price {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+        }
+
         /* Process Section */
         .process-section {
-            background-color: #f8f4ec;
+            background-color: white;
             position: relative;
             overflow: hidden;
         }
@@ -326,7 +409,7 @@
             width: 100%;
             height: 20px;
             top: 0;
-            left: 0;
+            right: 0;
             background: var(--gradient-design);
             opacity: 0.1;
         }
@@ -342,8 +425,8 @@
             content: '';
             position: absolute;
             top: 45px;
-            left: 0;
             right: 0;
+            left: 0;
             height: 3px;
             background: var(--gradient-secondary);
             z-index: 1;
@@ -393,7 +476,7 @@
 
         /* Benefits Section */
         .benefits-section {
-            background: white;
+            background: #f8f4ec;
             position: relative;
         }
 
@@ -427,9 +510,9 @@
             height: 5px;
             background: var(--gradient-secondary);
             bottom: 0;
-            left: 0;
+            right: 0;
             transform: scaleX(0);
-            transform-origin: left;
+            transform-origin: right;
             transition: var(--transition);
         }
 
@@ -469,76 +552,73 @@
             line-height: 1.7;
         }
 
-        /* Portfolio Section */
-        .portfolio-section {
+        /* Testimonials Section */
+        .testimonials-section {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
             background: #f8f4ec;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .portfolio-item {
-            position: relative;
             border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            height: 300px;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-            padding: 20px;
+            padding: 40px;
             text-align: center;
+            box-shadow: var(--shadow);
+            margin: 0 20px;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            position: relative;
         }
 
-        .portfolio-title {
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--color-secondary);
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             font-size: 1.5rem;
-            margin-bottom: 10px;
             font-weight: 700;
         }
 
-        .portfolio-description {
-            color: var(--color-secondary);
+        .author-info h4 {
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* CTA Section */
@@ -557,7 +637,7 @@
             width: 100%;
             height: 100%;
             top: 0;
-            left: 0;
+            right: 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0 50L100 50" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/><path d="M50 0L50 100" stroke="%23d7b24a" stroke-width="0.5" opacity="0.2"/></svg>');
             background-size: 50px 50px;
             opacity: 0.3;
@@ -595,10 +675,6 @@
         }
 
         @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .service-content {
                 grid-template-columns: 1fr;
             }
@@ -612,7 +688,7 @@
                 display: none;
             }
             
-            .portfolio-grid {
+            .programs-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -637,17 +713,12 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
+
             .cta-title {
                 font-size: 2.5rem;
             }
             
-            .portfolio-grid {
+            .programs-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -655,7 +726,17 @@
         @media (max-width: 576px) {
             .page-hero-title {
                 font-size: 2.2rem;
-            }
+            line-height: 1.2;
+            margin-bottom: 15px;
+            padding: 0 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-align: center;
+            max-width: 100%;
+            box-sizing: border-box;
+            display: block;
+        }
             
             .section-title {
                 font-size: 2rem;
@@ -748,7 +829,7 @@
       <!-- <img src="./HeaderSmall.jpg" alt=""> -->
       <img
         src="./erasebg-transformed.png"
-        alt="CIDCO Logo"
+        alt=""
         style="width: 100%; height: 100%"
       />
     </div>
@@ -760,64 +841,64 @@
             <i class="fas fa-bars"></i>
           </button>
           <ul class="nav-links">
-            <li><a href="./index-EN.html">Home</a></li>
-            <li><a href="./about-EN.html">About Us</a></li>
-            <li><a href="./products-EN.html">Products</a></li>
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./about.html">عن الشركة</a></li>
+            <li><a href="./products.html">المنتجات</a></li>
             <li>
               <div>
-                <a href="./services-EN.html" class="active">Services</a>
+                <a href="./services.html" class="active">الخدمات </a>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
               </div>
               <ul class="dropdown-menu">
-                <li><a href="./serviceDesign-EN.html">Design Development</a></li>
-                <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
-                <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
-                <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+                <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+                <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+                <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+                <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
                 <li>
-                  <a href="./serviceConsulting-EN.html">Management Consulting</a>
+                  <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
                 </li>
-              <li><a href="./serviceTraining-EN.html">Training and Qualification</a></li>
+                <li><a href="./serviceTraining.html">التدريب والتأهيل</a></li>
               </ul>
             </li>
             <li>
               <div>
-                <a href="./news-EN.html">News</a>
+                <a href="./news.html">الأخبار</a>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
               </div>
               <ul class="dropdown-menu">
                 <li>
                   <a
                     href="https://www.mobtada.com/economy/1525165/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A8%D8%B1%D9%88%D8%AA%D9%88%D9%83%D9%88%D9%84-%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%A8%D8%AF%D8%A7%D8%B9%D9%8A%D8%A9-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88CIDCO#google_vignette"
-                    >Mobtada Newspaper</a
+                    >جريدة مبتدأ</a
                   >
                 </li>
                 <li>
                   <a href="https://www.elwatannews.com/news/details/8102574"
-                    >El Watan Newspaper</a
+                    >جريدة الوطن</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://estsmararabe.com/%D8%AA%D8%B9%D8%A7%D9%88%D9%86-%D8%A8%D9%8A%D9%86-%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9-%D9%88%D8%B1%D8%B4%D8%B1%D9%83%D8%A9-cidco-%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1/"
-                    >Al Estesmar Newspaper</a
+                    >جريدة الاستثمار</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.facebook.com/hany.barakat.9/posts/pfbid02g7bVaGVaPvtpP7CyBUwuRbSRUGqaGcDYDRMDJcWLU16WVbAUomuPxXhGQQVvP9KUl"
-                    >Facebook</a
+                    >فيسبوك</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.facebook.com/100000534453653/posts/pfbid029AqYsL6f6Fd1SZvdYM6zAMMiku7yhW6avhNKjmzUGiUSmf2vuskU5wRyF6iq1LQCl/?app=fbl"
-                    >Spain</a
+                    >أسبانيا</a
                   >
                 </li>
               </ul>
             </li>
-            <li><a href="./contact-EN.html">Contact Us</a></li>
-            <li><a href="./index.html">AR</a></li>
+            <li><a href="./contact.html">اتصل بنا</a></li>
+            <li><a href="./index-EN.html">EN</a></li>
           </ul>
         </div>
       </div>
@@ -830,7 +911,7 @@
     >
       <div class="container">
         <h3 style="color: #d7b24a; font-size: 1.9rem; font-weight: 700">
-          The Path of Creators..... to Success and Excellence
+          طريق المبدعين ..... للنجاح و التميز
         </h3>
       </div>
     </section>
@@ -839,11 +920,11 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-content">
-                <h1 class="page-hero-title animate__animated animate__fadeInDown">Design Development</h1>
+                <h1 class="page-hero-title animate__animated animate__fadeInDown">التدريب والتأهيل</h1>
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li>Design Development</li>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">الخدمات</a></li>
+                    <li>التدريب والتأهيل</li>
                 </ul>
             </div>
         </div>
@@ -854,25 +935,99 @@
         <div class="container">
             <div class="service-content">
                 <div class="service-text">
-                    <h2>Design Development Service</h2>
-                    <p>At CIDCO, we provide integrated design development services that help you transform your ideas into tangible and attractive products. We work on studying market requirements and developing innovative designs that meet customer needs and keep up with the latest global trends.</p>
-                    <p>Using the latest technologies and innovative design methods, we ensure you get unique products that combine authenticity and modernity, characterized by high quality and global marketability.</p>
+                    <h2>خدمة التدريب والتأهيل</h2>
+                    <p>نقدم في CIDCO برامج تدريبية متخصصة وشاملة تهدف إلى تطوير مهارات الأفراد والمؤسسات وتمكينهم من مواكبة متطلبات سوق العمل المتغيرة. نعمل على تصميم وتنفيذ برامج تدريبية تلبي الاحتياجات الفعلية للعملاء وتساهم في تحقيق أهدافهم التنموية.</p>
+                    <p>باستخدام أحدث منهجيات التدريب وأساليب التعلم الحديثة، نضمن لك الحصول على تجربة تدريبية فريدة تجمع بين المعرفة النظرية والتطبيق العملي، وتتميز بجودة عالية وقابلية للتطبيق الفوري.</p>
                     
-                    <h3>Service Features</h3>
+                    <h3>مميزات الخدمة</h3>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Innovative and attractive product design</li>
-                        <li><i class="fas fa-check"></i> In-depth study of market trends</li>
-                        <li><i class="fas fa-check"></i> Development of integrated visual identity</li>
-                        <li><i class="fas fa-check"></i> Design of exceptional user experience</li>
-                        <li><i class="fas fa-check"></i> Use of the latest design technologies</li>
-                        <li><i class="fas fa-check"></i> Consideration of functional and aesthetic aspects</li>
+                        <li><i class="fas fa-check"></i> برامج تدريبية مخصصة حسب الاحتياج</li>
+                        <li><i class="fas fa-check"></i> مدربون محترفون ذوو خبرة واسعة</li>
+                        <li><i class="fas fa-check"></i> منهجيات تدريب تفاعلية وتطبيقية</li>
+                        <li><i class="fas fa-check"></i> تقييم ومتابعة مستمرة للمتدربين</li>
+                        <li><i class="fas fa-check"></i> شهادات معتمدة ومعترف بها</li>
+                        <li><i class="fas fa-check"></i> مرونة في أوقات ومكان التدريب</li>
                     </ul>
                     
-                    <a href="contact.html" class="btn btn-primary pulse">Request Service Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-primary pulse">اطلب الخدمة الآن <i class="fas fa-arrow-left"></i></a>
                 </div>
                 <div class="service-image animate floating">
-                    <i class="fas fa-pen-fancy"></i>
-                    <span>Creativity and Design</span>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تدريب وتأهيل متخصص</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section class="section programs-section">
+        <div class="container">
+            <h2 class="section-title">برامجنا التدريبية</h2>
+            <div class="programs-grid">
+                <div class="program-card animate">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="program-title">التدريب التقني والمهني</h3>
+                    </div>
+                    <div class="program-body">
+                        <p>برامج تدريبية متخصصة في المجالات التقنية والمهنية لتطوير المهارات العملية.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> برمجة وتطوير البرمجيات</li>
+                            <li><i class="fas fa-check"></i> إدارة الشبكات والأمن السيبراني</li>
+                            <li><i class="fas fa-check"></i> التصميم الجرافيكي والوسائط المتعددة</li>
+                            <li><i class="fas fa-check"></i> الصيانة التقنية للأجهزة الإلكترونية</li>
+                        </ul>
+                        <div class="program-duration">
+                            <span class="program-duration-text">المدة: 3-6 أشهر</span>
+                            <span class="program-price">تبدأ من 2000 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card animate">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="program-title">التدريب الإداري والقيادي</h3>
+                    </div>
+                    <div class="program-body">
+                        <p>برامج تطوير المهارات القيادية والإدارية لتحسين أداء المؤسسات.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> القيادة الاستراتيجية واتخاذ القرار</li>
+                            <li><i class="fas fa-check"></i> إدارة المشاريع والموارد</li>
+                            <li><i class="fas fa-check"></i> التسويق والمبيعات المتقدمة</li>
+                            <li><i class="fas fa-check"></i> التخطيط الاستراتيجي والتطوير التنظيمي</li>
+                        </ul>
+                        <div class="program-duration">
+                            <span class="program-duration-text">المدة: 2-4 أشهر</span>
+                            <span class="program-price">تبدأ من 3000 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card animate">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="program-title">تدريب المهارات الشخصية</h3>
+                    </div>
+                    <div class="program-body">
+                        <p>برامج تطوير المهارات الشخصية واللغوية لتعزيز القدرات التواصلية.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> اللغة الإنجليزية للأعمال</li>
+                            <li><i class="fas fa-check"></i> التواصل الفعال والعرض التقديمي</li>
+                            <li><i class="fas fa-check"></i> العمل الجماعي وإدارة الفريق</li>
+                            <li><i class="fas fa-check"></i> التفكير الإبداعي وحل المشكلات</li>
+                        </ul>
+                        <div class="program-duration">
+                            <span class="program-duration-text">المدة: 1-3 أشهر</span>
+                            <span class="program-price">تبدأ من 1500 جنيه</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -881,175 +1036,158 @@
     <!-- Process Section -->
     <section class="section process-section">
         <div class="container">
-            <h2 class="section-title">How We Provide the Service</h2>
+            <h2 class="section-title">كيفية تقديم الخدمة</h2>
             <div class="process-steps">
                 <div class="process-step animate">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Initial Consultation</h3>
-                    <p class="step-description">We start by understanding your needs and goals through in-depth consultation sessions.</p>
+                    <h3 class="step-title">التقييم والتحليل</h3>
+                    <p class="step-description">نبدأ بتقييم احتياجاتك التدريبية وتحليل الفجوات المهارية لتصميم البرنامج المناسب.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Market Study</h3>
-                    <p class="step-description">We conduct an in-depth study of the market and competitors to ensure your designs stand out.</p>
+                    <h3 class="step-title">تصميم البرنامج</h3>
+                    <p class="step-description">نصمم برنامجاً تدريبياً مخصصاً يتناسب مع أهدافك ومتطلبات سوق العمل.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Initial Design</h3>
-                    <p class="step-description">We develop initial designs and present them to you for feedback.</p>
+                    <h3 class="step-title">التنفيذ والتطبيق</h3>
+                    <p class="step-description">ننفذ البرنامج التدريبي باستخدام أحدث الوسائل والتقنيات التعليمية.</p>
                 </div>
 
                 <div class="process-step animate">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Final Implementation</h3>
-                    <p class="step-description">We implement the final design and deliver the product with all details.</p>
+                    <h3 class="step-title">المتابعة والتقييم</h3>
+                    <p class="step-description">نقوم بمتابعة المتدربين وتقييم أدائهم لضمان تحقيق النتائج المرجوة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <!-- <section class="section portfolio-section">
-        <div class="container">
-            <h2 class="section-title">Our Design Works</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item animate">
-                    <div class="portfolio-image">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Visual Identity Design</h3>
-                        <p class="portfolio-description">Complete identity for a new brand</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item animate">
-                    <div class="portfolio-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Mobile App Design</h3>
-                        <p class="portfolio-description">Attractive and user-friendly interfaces</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item animate">
-                    <div class="portfolio-image">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">E-commerce Design</h3>
-                        <p class="portfolio-description">Unique and distinctive shopping experience</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Benefits Section -->
     <section class="section benefits-section">
         <div class="container">
-            <h2 class="section-title">Benefits of Design Development Service</h2>
+            <h2 class="section-title">فوائد خدمة التدريب والتأهيل</h2>
             <div class="benefits-grid">
                 <div class="benefit-card animate">
                     <div class="benefit-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h3 class="benefit-title">Market Distinction</h3>
-                    <p class="benefit-description">Innovative designs that make your products stand out in the market and attract customer attention.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="benefit-title">Customer Satisfaction</h3>
-                    <p class="benefit-description">Designs focused on user experience that meet customer expectations.</p>
+                    <h3 class="benefit-title">تطوير المهارات</h3>
+                    <p class="benefit-description">تحسين وتطوير المهارات المهنية والشخصية للموظفين والأفراد.</p>
                 </div>
 
                 <div class="benefit-card animate">
                     <div class="benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="benefit-title">Increased Sales</h3>
-                    <p class="benefit-description">Attractive designs that increase product value and improve sales rates.</p>
+                    <h3 class="benefit-title">زيادة الإنتاجية</h3>
+                    <p class="benefit-description">رفع مستوى الأداء والإنتاجية في بيئة العمل.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="benefit-title">تحسين الروح المعنوية</h3>
+                    <p class="benefit-description">تعزيز الثقة والروح المعنوية لدى الموظفين.</p>
+                </div>
+
+                <div class="benefit-card animate">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="benefit-title">مواكبة التطورات</h3>
+                    <p class="benefit-description">البقاء على اطلاع بأحدث التطورات في المجال.</p>
                 </div>
 
                 <div class="benefit-card animate">
                     <div class="benefit-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3 class="benefit-title">High Quality</h3>
-                    <p class="benefit-description">Use of high-quality materials and techniques that ensure product durability and beauty.</p>
+                    <h3 class="benefit-title">شهادات معتمدة</h3>
+                    <p class="benefit-description">الحصول على شهادات معتمدة تعزز السيرة الذاتية.</p>
                 </div>
 
                 <div class="benefit-card animate">
                     <div class="benefit-icon">
-                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="benefit-title">Global Design</h3>
-                    <p class="benefit-description">Designs that meet international standards and suit different cultures and markets.</p>
-                </div>
-
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="benefit-title">Continuous Innovation</h3>
-                    <p class="benefit-description">Keeping up with the latest design trends and continuously providing innovative solutions.</p>
+                    <h3 class="benefit-title">تطوير المسار الوظيفي</h3>
+                    <p class="benefit-description">فتح آفاق جديدة للتطور والترقي الوظيفي.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Testimonials Section -->
+    <!-- <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">شاركت في برنامج التدريب الإداري الذي قدمته CIDCO وكانت تجربة رائعة. البرنامج كان شاملاً وعملياً وساعدني في تطوير مهاراتي القيادية بشكل ملحوظ.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م</div>
+                        <div class="author-info">
+                            <h4>محمد أحمد</h4>
+                            <p>مدير مشاريع - شركة التقنية المتطورة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to develop your product designs?</h2>
-                <p class="cta-description">Contact us today for a free consultation and to discuss how we can help you develop innovative designs for your products.</p>
-                <a href="contact.html" class="btn btn-primary pulse">Request Free Consultation <i class="fas fa-arrow-right"></i></a>
+                <h2 class="cta-title">مستعد لتطوير مهاراتك أو مهارات موظفيك؟</h2>
+                <p class="cta-description">تواصل معنا اليوم لتحصل على استشارة مجانية ومناقشة كيف يمكننا مساعدتك في تصميم وتنفيذ برامج التدريب والتأهيل المناسبة لاحتياجاتك.</p>
+                <a href="contact.html" class="btn btn-primary pulse">اطلب استشارة مجانية <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-widget">
-            <h4>About the Company</h4>
+            <h4>عن الشركة</h4>
             <p>
-              Creative Industries Development Company (CIDCO) aims to support creators, develop their industries, and enable them to compete in local and international markets.
+              شركة تطوير الصناعات الإبداعية (CIDCO) تهدف إلى دعم المبدعين وتطوير
+              صناعاتهم وتمكينهم من المنافسة في الأسواق المحلية والدولية.
             </p>
           </div>
           <div class="footer-widget">
-            <h4>Quick Links</h4>
+            <h4>روابط سريعة</h4>
             <ul class="footer-links">
-              <li><a href="index-EN.html">Home</a></li>
-              <li><a href="about-EN.html">About Us</a></li>
-              <li><a href="products-EN.html">Products</a></li>
-              <li><a href="services-EN.html">Services</a></li>
-              <li><a href="news-EN.html">News</a></li>
-              <li><a href="contact-EN.html">Contact Us</a></li>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">عن الشركة</a></li>
+              <li><a href="products.html">المنتجات</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="news.html">الأخبار</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
             </ul>
           </div>
           <div class="footer-widget">
-            <h4>Our Services</h4>
+            <h4>خدماتنا</h4>
             <ul class="footer-links">
-              <li><a href="./serviceDesign-EN.html">Design Development</a></li>
-              <li><a href="./serviceQuality-EN.html">Quality Assurance</a></li>
-              <li><a href="./serviceMarketing-EN.html">International Marketing</a></li>
-              <li><a href="./serviceStandards-EN.html">International Standards</a></li>
+              <li><a href="./serviceDesign.html">تطوير التصميمات</a></li>
+              <li><a href="./serviceQuality.html">ضمان الجودة</a></li>
+              <li><a href="./serviceMarketing.html">التسويق الدولي</a></li>
+              <li><a href="./serviceStandards.html">المواصفات الدولية</a></li>
               <li>
-                <a href="./serviceConsulting-EN.html">Management Consulting</a>
+                <a href="./serviceConsulting.html">الاستشارات الإدارية</a>
               </li>
-              <li><a href="./serviceTraining-EN.html">Training and Qualification</a></li>
+              <li><a href="./serviceTraining.html">التدريب والتأهيل</a></li>
             </ul>
           </div>
           <div class="footer-widget">
-            <h4>Connect With Us</h4>
+            <h4>وسائل التواصل</h4>
             <div class="footer-social-links">
               <a href="https://www.facebook.com/profile.php?id=61565936141987"><i class="fab fa-facebook"></i></a>
               <a href="https://www.linkedin.com/company/creative-industries-development-company/"><i class="fab fa-instagram"></i></a>
@@ -1058,16 +1196,20 @@
             </div>
             <p style="margin-top: 20px; color: #ccc">
               info@cidco.tech<br />
-              +20226706652<br />
-              Creative Industries Development Company, 14 Fouad Badawany Street, Zone 8, Nasr City, Cairo
+              <p dir="ltr" style="
+    text-align: end;
+">+20226706652</p>
+              شركة تطوير الصناعات الإبداعية ش.م.م ١٤ شارع فؤاد بدواني _ المنطقة
+              الثامنة مدينة نصر _ القاهرة
             </p>
           </div>
         </div>
         <div class="copyright">
-          <p>© 2025 CIDCO. All Rights Reserved</p>
+          <p>© 2025 CIDCO. جميع الحقوق محفوظة</p>
         </div>
       </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Animation on scroll
@@ -1085,9 +1227,26 @@
             animateElements.forEach(el => {
                 observer.observe(el);
             });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            // Adjust mobile menu on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            });
         });
     </script>
-        <script src="./header.js"></script>
+    <script src="./header.js"></script>
 
 </body>
 </html>
