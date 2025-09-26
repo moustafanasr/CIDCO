@@ -798,51 +798,71 @@
       </div>
     </footer>
 
+    <!-- Required Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.4/smooth-scrollbar.js"></script>
+
+    <!-- Smooth scroll functionality -->
+    <script src="smooth-scroll.js"></script>
     <script>
-      // Simple animation for elements when they come into view
-      document.addEventListener("DOMContentLoaded", function () {
-        const animatedElements = document.querySelectorAll(
-          ".product-item, .service-item, .testimonial-item, .about-text, .about-image"
-        );
+  // Initialize smooth scroll when DOM is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize smooth scroll first
+    if (typeof initSmoothScroll === 'function') {
+      initSmoothScroll();
+    }
+    
+    // Your existing animation code
+    const animatedElements = document.querySelectorAll(
+      ".product-item, .service-item, .testimonial-item, .about-text, .about-image"
+    );
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("animate");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.1
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target);
           }
-        );
-
-        animatedElements.forEach((el) => {
-          el.style.opacity = "0";
-          observer.observe(el);
         });
+      },
+      {
+        threshold: 0.1
+      }
+    );
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
+    animatedElements.forEach((el) => {
+      el.style.opacity = "0";
+      observer.observe(el);
+    });
 
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
+    // Update smooth scrolling for navigation links to work with smooth scrollbar
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth"
-              });
-            }
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement && scrollbar) {
+          // Use smooth scrollbar if available
+          scrollbar.scrollIntoView(targetElement, {
+            offsetTop: -80,
+            alignToTop: true
           });
-        });
+        } else if (targetElement) {
+          // Fallback to normal smooth scroll
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth"
+          });
+        }
       });
-    </script>
+    });
+  });
+</script>
     <script src="./header.js"></script>
   </body>
 </html>

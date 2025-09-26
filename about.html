@@ -1250,7 +1250,7 @@
             <div class="team-grid">
                 <div class="team-member animate">
                     <div class="member-image">
-                        <i class="fas fa-user"></i>
+                        <img src="./assest/img/HanyBarakat.jpg" alt="HanyBarakat">
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">دكتور هانى بركات</h3>
@@ -1364,9 +1364,20 @@
         </div>
       </div>
     </footer>
+    <!-- Required Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.4/smooth-scrollbar.js"></script>
 
+    <!-- Smooth scroll functionality -->
+    <script src="smooth-scroll.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize smooth scroll from external file
+            if (typeof initSmoothScroll === 'function') {
+                initSmoothScroll();
+            }
+
             // Animation on scroll
             const animateElements = document.querySelectorAll('.animate');
             const observer = new IntersectionObserver((entries) => {
@@ -1383,23 +1394,29 @@
                 observer.observe(el);
             });
 
-            // Scroll to top functionality
+            // Scroll to top functionality - will be handled by external file
             const scrollTopBtn = document.getElementById('scrollTop');
             
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 500) {
-                    scrollTopBtn.classList.add('active');
-                } else {
-                    scrollTopBtn.classList.remove('active');
+            if (scrollTopBtn) {
+                // If smooth scroll is available, it will handle this in the external file
+                // If not, use the fallback below
+                if (typeof scrollbar === 'undefined' || scrollbar === null) {
+                    window.addEventListener('scroll', function() {
+                        if (window.scrollY > 500) {
+                            scrollTopBtn.classList.add('active');
+                        } else {
+                            scrollTopBtn.classList.remove('active');
+                        }
+                    });
+                    
+                    scrollTopBtn.addEventListener('click', function() {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
                 }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+            }
         });
     </script>
         <script src="./header.js"></script>

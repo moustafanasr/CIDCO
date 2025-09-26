@@ -872,7 +872,70 @@ to cooperate in developing creative and cultural industries in Egypt and opening
       </div>
     </footer>
 
+    <!-- Required Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.4/smooth-scrollbar.js"></script>
+
+    <!-- Smooth scroll functionality -->
+    <script src="smooth-scroll.js"></script>
+
+    <!-- Your main functionality -->
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize smooth scroll
+        initSmoothScroll();
+
+        // Your existing main.js code here
+        const animateElements = document.querySelectorAll(".animate");
+        if (animateElements.length > 0) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("animated");
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+          animateElements.forEach((el) => observer.observe(el));
+        }
+
+        // News filter functionality
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const newsCards = document.querySelectorAll(".news-card");
+        if (filterButtons.length > 0 && newsCards.length > 0) {
+          filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              filterButtons.forEach((btn) => btn.classList.remove("active"));
+              button.classList.add("active");
+              const filterValue = button.textContent.trim();
+
+              newsCards.forEach((card) => {
+                if (filterValue === "All News") {
+                  card.style.display = "block";
+                  setTimeout(() => card.classList.add("animated"), 50);
+                } else {
+                  const newsSource = card.querySelector(".news-source");
+                  if (newsSource && (newsSource.textContent.includes(filterValue) || Math.random() > 0.5)) {
+                    card.style.display = "block";
+                    setTimeout(() => card.classList.add("animated"), 50);
+                  } else {
+                    card.style.display = "none";
+                  }
+                }
+              });
+            });
+          });
+        }
+
+        // Setup scroll to top
+        setupScrollToTop();
+      });
+    </script>
+
+    <!-- <script>
       // main.js - JavaScript for main page functionality only
       document.addEventListener("DOMContentLoaded", function () {
         // Animation on scroll
@@ -961,7 +1024,7 @@ to cooperate in developing creative and cultural industries in Egypt and opening
           });
         }
       });
-    </script>
+    </script> -->
     <script src="./header.js"></script>
   </body>
 </html>

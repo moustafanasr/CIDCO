@@ -1141,7 +1141,7 @@
             <div class="cert-icon">
               <i class="fas fa-industry"></i>
             </div>
-            <h3 class="cert-title">معايير الصناعة السعودية</h3>
+            <h3 class="cert-title">المعايير الدولية</h3>
             <p class="cert-desc">
               نلتزم بمعايير هيئة المواصفات السعودية والتي تضمن جودة المنتجات في
               السوق المحلية.
@@ -1240,8 +1240,19 @@
       </div>
     </footer>
     
+    <!-- Required Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.4/smooth-scrollbar.js"></script>
+
+    <!-- Smooth scroll functionality -->
+    <script src="smooth-scroll.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener('DOMContentLoaded', function() {
+          // Initialize smooth scroll from external file
+        if (typeof initSmoothScroll === 'function') {
+          initSmoothScroll();
+        }
         // Animation on scroll
         const animateElements = document.querySelectorAll(".animate");
         const observer = new IntersectionObserver(
